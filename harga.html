@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<title>Harga XMR MyShort</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+:root{
+  --bg:#06101c;
+  --card:#0d1d32;
+  --card2:#112641;
+  --line:rgba(128,171,222,.18);
+  --text:#f4f7fc;
+  --muted:#91a5bd;
+  --blue:#3d91ff;
+  --gold:#ffbf38;
+  --green:#69e85b;
+}
+
+html,
+body{
+  min-height:100%;
+}
+
+body{
+  background:
+    radial-gradient(circle at 85% 8%,rgba(40,116,220,.25),transparent 30%),
+    radial-gradient(circle at 10% 70%,rgba(31,130,160,.12),transparent 28%),
+    linear-gradient(180deg,#040b14 0%,#071426 52%,#06101c 100%);
+
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+  padding:18px 12px 40px;
+}
+
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.22;
+  background-image:
+    linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+  background-size:30px 30px;
+}
+
+.page{
+  position:relative;
+  z-index:1;
+  width:100%;
+  max-width:720px;
+  margin:auto;
+}
+
+.header{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:14px;
+  padding:8px 4px;
+}
+
+.logo{
+  width:52px;
+  height:52px;
+  border-radius:15px;
+  overflow:hidden;
+  flex:0 0 52px;
+  background:#f3eee1;
+  border:1px solid rgba(255,255,255,.16);
+  box-shadow:0 8px 25px rgba(0,0,0,.35);
+}
+
+.logo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.brand-title{
+  font-size:20px;
+  font-weight:900;
+  letter-spacing:.5px;
+}
+
+.brand-sub{
+  margin-top:3px;
+  color:#8da2bb;
+  font-size:11px;
+}
+
+.card{
+  background:
+    linear-gradient(145deg,rgba(17,38,65,.96),rgba(7,19,34,.97));
+
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:18px;
+  box-shadow:
+    0 18px 45px rgba(0,0,0,.35),
+    inset 0 1px 0 rgba(255,255,255,.035);
+
+  margin-bottom:14px;
+}
+
+.title{
+  font-size:25px;
+  font-weight:900;
+  line-height:1.15;
+}
+
+.subtitle{
+  color:#8fa3bc;
+  font-size:12px;
+  line-height:1.55;
+  margin-top:7px;
+}
+
+.rate{
+  margin-top:14px;
+  padding:13px 14px;
+  border-radius:15px;
+  background:linear-gradient(
+    135deg,
+    rgba(255,191,56,.13),
+    rgba(255,191,56,.045)
+  );
+  border:1px solid rgba(255,191,56,.25);
+}
+
+.rate-label{
+  color:#a5b5c9;
+  font-size:10px;
+  font-weight:800;
+}
+
+.rate-value{
+  margin-top:4px;
+  color:var(--gold);
+  font-size:20px;
+  font-weight:900;
+}
+
+.table-wrap{
+  margin-top:16px;
+  overflow:hidden;
+  border-radius:18px;
+  border:1px solid rgba(126,167,216,.18);
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+thead{
+  background:linear-gradient(
+    135deg,
+    rgba(255,194,62,.18),
+    rgba(255,194,62,.06)
+  );
+}
+
+th{
+  padding:13px 12px;
+  text-align:left;
+  color:#ffc94d;
+  font-size:11px;
+  font-weight:900;
+  border-bottom:1px solid var(--line);
+}
+
+td{
+  padding:12px;
+  color:#dce7f4;
+  font-size:12px;
+  border-bottom:1px solid rgba(120,161,211,.09);
+}
+
+tbody tr:last-child td{
+  border-bottom:0;
+}
+
+tbody tr:hover{
+  background:rgba(70,135,220,.06);
+}
+
+.xmr-cell{
+  color:#69b8ff;
+  font-weight:900;
+  text-align:right;
+}
+
+.rupiah-cell{
+  color:#ffc343;
+  font-weight:900;
+}
+
+.highlight{
+  background:rgba(255,190,48,.08);
+}
+
+.section-title{
+  font-size:16px;
+  font-weight:900;
+}
+
+.section-desc{
+  color:#8297b0;
+  font-size:10px;
+  line-height:1.55;
+  margin-top:5px;
+}
+
+.field{
+  margin-top:11px;
+}
+
+label{
+  display:block;
+  color:#8fa4bc;
+  font-size:10px;
+  font-weight:800;
+  margin-bottom:6px;
+}
+
+input{
+  width:100%;
+  padding:13px 14px;
+  border-radius:12px;
+  border:1px solid rgba(116,161,215,.18);
+  outline:none;
+  background:#071423;
+  color:#f1f6fc;
+  font-size:13px;
+}
+
+input:focus{
+  border-color:rgba(70,151,255,.7);
+  box-shadow:0 0 0 3px rgba(61,145,255,.08);
+}
+
+input::placeholder{
+  color:#617792;
+}
+
+.result{
+  margin-top:13px;
+  padding:15px;
+  border-radius:16px;
+  background:linear-gradient(
+    145deg,
+    rgba(9,29,51,.96),
+    rgba(7,18,31,.96)
+  );
+  border:1px solid rgba(90,151,225,.17);
+}
+
+.result-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:7px 0;
+}
+
+.result-label{
+  color:#8298b2;
+  font-size:10px;
+}
+
+.result-value{
+  color:#f5f8fd;
+  font-size:13px;
+  font-weight:900;
+  text-align:right;
+  word-break:break-word;
+}
+
+.result-value.gold{
+  color:var(--gold);
+  font-size:16px;
+}
+
+.result-value.blue{
+  color:#58b1ff;
+}
+
+.btn{
+  width:100%;
+  border:0;
+  border-radius:13px;
+  padding:13px 14px;
+  margin-top:9px;
+  font-size:11px;
+  font-weight:900;
+  cursor:pointer;
+  transition:transform .15s,opacity .15s;
+}
+
+.btn:active{
+  transform:scale(.98);
+}
+
+.btn:disabled{
+  opacity:.4;
+  cursor:not-allowed;
+}
+
+.btn-gold{
+  color:#241800;
+  background:linear-gradient(135deg,#ffd15a,#df951d);
+  box-shadow:0 8px 20px rgba(223,149,29,.18);
+}
+
+.btn-blue{
+  color:white;
+  background:linear-gradient(135deg,#398fff,#2164c7);
+  box-shadow:0 8px 20px rgba(35,112,225,.18);
+}
+
+.btn-dark{
+  color:#bdcde0;
+  background:#101f32;
+  border:1px solid rgba(120,161,210,.16);
+}
+
+.info{
+  padding:13px 14px;
+  border-radius:14px;
+  background:rgba(48,110,180,.07);
+  border:1px solid rgba(72,139,215,.13);
+  color:#849ab4;
+  font-size:9px;
+  line-height:1.6;
+  margin-top:13px;
+}
+
+.proof-card{
+  display:none;
+  margin-top:15px;
+  padding:18px;
+  border-radius:18px;
+  background:#f8f6ef;
+  color:#20242b;
+  border:1px solid #d8d2c2;
+  box-shadow:0 15px 30px rgba(0,0,0,.22);
+}
+
+.proof-header{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding-bottom:13px;
+  border-bottom:1px solid #ddd7c9;
+}
+
+.proof-logo{
+  width:45px;
+  height:45px;
+  border-radius:11px;
+  overflow:hidden;
+  background:#f1ecdf;
+}
+
+.proof-logo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.proof-brand{
+  font-weight:900;
+  font-size:17px;
+}
+
+.proof-sub{
+  color:#77736c;
+  font-size:9px;
+  margin-top:2px;
+}
+
+.proof-title{
+  margin-top:16px;
+  font-size:18px;
+  font-weight:900;
+}
+
+.proof-note{
+  margin-top:5px;
+  color:#77736c;
+  font-size:9px;
+  line-height:1.5;
+}
+
+.proof-table{
+  margin-top:13px;
+  border:1px solid #ddd7ca;
+  border-radius:12px;
+  overflow:hidden;
+}
+
+.proof-row{
+  display:grid;
+  grid-template-columns:42% 58%;
+  border-bottom:1px solid #e5dfd3;
+}
+
+.proof-row:last-child{
+  border-bottom:0;
+}
+
+.proof-label{
+  padding:11px;
+  background:#f0ece2;
+  font-size:9px;
+  font-weight:800;
+  color:#6f6b64;
+}
+
+.proof-value{
+  padding:11px;
+  font-size:10px;
+  font-weight:900;
+  word-break:break-word;
+}
+
+.proof-xmr{
+  color:#a96700;
+}
+
+.proof-id{
+  color:#245ea8;
+  font-family:monospace;
+}
+
+.proof-footer{
+  margin-top:14px;
+  padding-top:12px;
+  border-top:1px dashed #cfc8b9;
+  color:#77736c;
+  font-size:8px;
+  line-height:1.55;
+}
+
+.footer{
+  text-align:center;
+  color:#6e849e;
+  font-size:10px;
+  line-height:1.6;
+  margin-top:18px;
+}
+
+@media(max-width:430px){
+
+  body{
+    padding:12px 10px 30px;
+  }
+
+  .card{
+    padding:15px;
+    border-radius:21px;
+  }
+
+  .title{
+    font-size:22px;
+  }
+
+  .rate-value{
+    font-size:18px;
+  }
+
+  th,
+  td{
+    padding:11px 9px;
+  }
+
+  th{
+    font-size:10px;
+  }
+
+  td{
+    font-size:11px;
+  }
+
+  .proof-row{
+    grid-template-columns:40% 60%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+
+    <div class="logo">
+      <img
+        src="logo.png"
+        alt="MyShort"
+        onerror="this.style.display='none'"
+      >
+    </div>
+
+    <div>
+      <div class="brand-title">
+        MYSHORT
+      </div>
+
+      <div class="brand-sub">
+        XMR Mining Center
+      </div>
+    </div>
+
+  </header>
+
+
+  <!-- HARGA XMR -->
+  <section class="card">
+
+    <h1 class="title">
+      Tabel Perkiraan Nilai XMR
+    </h1>
+
+    <p class="subtitle">
+      Perhitungan menggunakan harga referensi
+      <b>Rp 9.181.017 / XMR</b>.
+    </p>
+
+    <div class="rate">
+
+      <div class="rate-label">
+        HARGA REFERENSI
+      </div>
+
+      <div class="rate-value">
+        Rp 9.181.017 / XMR
+      </div>
+
+    </div>
+
+    <div class="table-wrap">
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Nilai Rupiah</th>
+            <th style="text-align:right">
+              Perkiraan XMR
+            </th>
+          </tr>
+        </thead>
+
+        <tbody id="priceTable"></tbody>
+
+      </table>
+
+    </div>
+
+    <div class="info">
+      Nilai di atas merupakan perkiraan berdasarkan harga
+      referensi. Harga XMR dapat berubah mengikuti harga
+      pasar dan kebijakan transaksi.
+    </div>
+
+  </section>
+
+
+  <!-- KALKULATOR -->
+  <section class="card">
+
+    <h2 class="section-title">
+      Kalkulator XMR ↔ Rupiah
+    </h2>
+
+    <p class="section-desc">
+      Masukkan jumlah XMR atau nominal Rupiah.
+      Untuk membuat bukti, cukup klik tombol BUAT BUKTI.
+    </p>
+
+
+    <div class="field">
+
+      <label for="xmrInput">
+        JUMLAH XMR
+      </label>
+
+      <input
+        id="xmrInput"
+        type="text"
+        inputmode="decimal"
+        placeholder="Contoh: 0.000326765000"
+        autocomplete="off"
+      >
+
+    </div>
+
+
+    <div class="field">
+
+      <label for="idrInput">
+        NOMINAL RUPIAH
+      </label>
+
+      <input
+        id="idrInput"
+        type="text"
+        inputmode="numeric"
+        placeholder="Contoh: 3000"
+        autocomplete="off"
+      >
+
+    </div>
+
+
+    <div class="result">
+
+      <div class="result-row">
+
+        <div class="result-label">
+          Jumlah XMR
+        </div>
+
+        <div
+          class="result-value blue"
+          id="resultXmr"
+        >
+          0.000000000000 XMR
+        </div>
+
+      </div>
+
+
+      <div class="result-row">
+
+        <div class="result-label">
+          Perkiraan Rupiah
+        </div>
+
+        <div
+          class="result-value gold"
+          id="resultIdr"
+        >
+          Rp 0
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <button
+      class="btn btn-gold"
+      id="buatBuktiBtn"
+      type="button"
+    >
+      ✓ BUAT BUKTI PENGIRIMAN
+    </button>
+
+
+    <button
+      class="btn btn-blue"
+      id="downloadBtn"
+      type="button"
+      disabled
+    >
+      ↓ DOWNLOAD BUKTI GAMBAR
+    </button>
+
+
+    <!-- PREVIEW BUKTI -->
+    <div
+      class="proof-card"
+      id="proofCard"
+    >
+
+      <div class="proof-header">
+
+        <div class="proof-logo">
+
+          <img
+            src="logo.png"
+            alt="MyShort"
+            onerror="this.style.display='none'"
+          >
+
+        </div>
+
+        <div>
+
+          <div class="proof-brand">
+            MYSHORT
+          </div>
+
+          <div class="proof-sub">
+            XMR Mining Center
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="proof-title">
+        BUKTI PENGIRIMAN XMR
+      </div>
+
+      <div class="proof-note">
+        Bukti pencatatan pengiriman XMR kepada member.
+      </div>
+
+
+      <div class="proof-table">
+
+        <div class="proof-row">
+
+          <div class="proof-label">
+            Nomor UID Member
+          </div>
+
+          <div
+            class="proof-value"
+            id="proofUid"
+          >
+            -
+          </div>
+
+        </div>
+
+
+        <div class="proof-row">
+
+          <div class="proof-label">
+            Jumlah Transaksi XMR
+          </div>
+
+          <div
+            class="proof-value proof-xmr"
+            id="proofXmr"
+          >
+            -
+          </div>
+
+        </div>
+
+
+        <div class="proof-row">
+
+          <div class="proof-label">
+            Nilai Rupiah
+          </div>
+
+          <div
+            class="proof-value"
+            id="proofIdr"
+          >
+            -
+          </div>
+
+        </div>
+
+
+        <div class="proof-row">
+
+          <div class="proof-label">
+            Tanggal Pengiriman
+          </div>
+
+          <div
+            class="proof-value"
+            id="proofDate"
+          >
+            -
+          </div>
+
+        </div>
+
+
+        <div class="proof-row">
+
+          <div class="proof-label">
+            ID Transaksi
+          </div>
+
+          <div
+            class="proof-value proof-id"
+            id="proofTx"
+          >
+            -
+          </div>
+
+        </div>
+
+
+        <div class="proof-row">
+
+          <div class="proof-label">
+            Status
+          </div>
+
+          <div
+            class="proof-value"
+            id="proofStatus"
+          >
+            -
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="proof-footer">
+
+        Harga referensi:
+        <b>Rp 9.181.017 / XMR</b>.
+
+        <br><br>
+
+        Bukti ini dibuat berdasarkan data yang dimasukkan
+        pada halaman MyShort. ID transaksi otomatis pada
+        bukti ini merupakan nomor referensi pencatatan,
+        bukan TXID blockchain asli.
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <div class="footer">
+    MyShort XMR • Kalkulator dan bukti pengiriman member
+  </div>
+
+</div>
+
+
+<script>
+"use strict";
+
+
+/* ==========================================
+   KONFIGURASI
+========================================== */
+
+const XMR_PRICE = 9181017;
+
+
+/* ==========================================
+   HELPER
+========================================== */
+
+const $ = id =>
+  document.getElementById(id);
+
+
+function formatRupiah(value){
+
+  return "Rp " +
+    new Intl.NumberFormat("id-ID")
+      .format(
+        Math.round(Number(value || 0))
+      );
+
+}
+
+
+function formatRupiahDecimal(value){
+
+  return "Rp " +
+    new Intl.NumberFormat(
+      "id-ID",
+      {
+        minimumFractionDigits:2,
+        maximumFractionDigits:2
+      }
+    ).format(
+      Number(value || 0)
+    );
+
+}
+
+
+function formatXmr(value){
+
+  return Number(value || 0)
+    .toFixed(12);
+
+}
+
+
+function parseNumber(value){
+
+  if(!value){
+    return 0;
+  }
+
+  let text =
+    String(value)
+      .replace(/\s/g,"")
+      .replace(/Rp/gi,"");
+
+  /*
+    Untuk input XMR:
+    koma dianggap titik.
+  */
+
+  text =
+    text.replace(/,/g,".");
+
+  const number =
+    Number(text);
+
+  return Number.isFinite(number)
+    ?number
+    :0;
+
+}
+
+
+/* ==========================================
+   TABEL NOMINAL
+========================================== */
+
+const nominalRupiah = [
+  1000,
+  2000,
+  5000,
+  10000,
+  15000,
+  20000,
+  25000,
+  30000,
+  50000,
+  100000
+];
+
+
+function buildPriceTable(){
+
+  const table =
+    $("priceTable");
+
+  table.innerHTML = "";
+
+
+  nominalRupiah.forEach(
+    rupiah => {
+
+      const xmr =
+        rupiah / XMR_PRICE;
+
+
+      const tr =
+        document.createElement("tr");
+
+
+      if(rupiah === 30000){
+
+        tr.className =
+          "highlight";
+
+      }
+
+
+      tr.innerHTML = `
+
+        <td class="rupiah-cell">
+          ${formatRupiah(rupiah)}
+        </td>
+
+        <td class="xmr-cell">
+          ${formatXmr(xmr)} XMR
+        </td>
+
+      `;
+
+
+      table.appendChild(tr);
+
+    }
+  );
+
+}
+
+
+/* ==========================================
+   KALKULATOR XMR
+========================================== */
+
+function updateFromXmr(){
+
+  const xmr =
+    parseNumber(
+      $("xmrInput").value
+    );
+
+
+  const rupiah =
+    xmr * XMR_PRICE;
+
+
+  $("resultXmr").textContent =
+    formatXmr(xmr) +
+    " XMR";
+
+
+  $("resultIdr").textContent =
+    formatRupiahDecimal(rupiah);
+
+
+  if(
+    document.activeElement !==
+    $("idrInput")
+  ){
+
+    $("idrInput").value =
+      xmr > 0
+        ?Math.round(rupiah).toLocaleString("id-ID")
+        :"";
+
+  }
+
+}
+
+
+function updateFromRupiah(){
+
+  const rupiah =
+    Number(
+      String(
+        $("idrInput").value
+      )
+      .replace(/[^0-9]/g,"")
+    );
+
+
+  const xmr =
+    rupiah / XMR_PRICE;
+
+
+  $("resultXmr").textContent =
+    formatXmr(xmr) +
+    " XMR";
+
+
+  $("resultIdr").textContent =
+    formatRupiahDecimal(rupiah);
+
+
+  if(
+    document.activeElement !==
+    $("xmrInput")
+  ){
+
+    $("xmrInput").value =
+      rupiah > 0
+        ?formatXmr(xmr)
+        :"";
+
+  }
+
+}
+
+
+$("xmrInput")
+  .addEventListener(
+    "input",
+    function(){
+
+      this.value =
+        this.value
+          .replace(/[^0-9.,]/g,"");
+
+      updateFromXmr();
+
+    }
+  );
+
+
+$("idrInput")
+  .addEventListener(
+    "input",
+    function(){
+
+      this.value =
+        this.value
+          .replace(/[^0-9]/g,"");
+
+      updateFromRupiah();
+
+    }
+  );
+
+
+/* ==========================================
+   ID TRANSAKSI OTOMATIS
+========================================== */
+
+function generateTransactionId(){
+
+  const now =
+    new Date();
+
+
+  const date =
+    now.getFullYear() +
+    String(now.getMonth()+1)
+      .padStart(2,"0") +
+    String(now.getDate())
+      .padStart(2,"0");
+
+
+  const time =
+    String(now.getHours())
+      .padStart(2,"0") +
+    String(now.getMinutes())
+      .padStart(2,"0") +
+    String(now.getSeconds())
+      .padStart(2,"0");
+
+
+  const random =
+    Math.random()
+      .toString(36)
+      .substring(2,8)
+      .toUpperCase();
+
+
+  return "MSXMR-" +
+    date +
+    "-" +
+    time +
+    "-" +
+    random;
+
+}
+
+
+/* ==========================================
+   TANGGAL OTOMATIS
+========================================== */
+
+function getCurrentDate(){
+
+  return new Date()
+    .toLocaleString(
+      "id-ID",
+      {
+        day:"2-digit",
+        month:"2-digit",
+        year:"numeric",
+        hour:"2-digit",
+        minute:"2-digit",
+        second:"2-digit",
+        hour12:false
+      }
+    ) + " WIB";
+
+}
+
+
+/* ==========================================
+   DATA BUKTI
+========================================== */
+
+let proofData = null;
+
+
+/* ==========================================
+   BUAT BUKTI
+========================================== */
+
+$("buatBuktiBtn")
+  .addEventListener(
+    "click",
+    function(){
+
+      let xmr =
+        parseNumber(
+          $("xmrInput").value
+        );
+
+
+      let rupiah =
+        Number(
+          String(
+            $("idrInput").value
+          )
+          .replace(/[^0-9]/g,"")
+        );
+
+
+      if(xmr <= 0 && rupiah > 0){
+
+        xmr =
+          rupiah / XMR_PRICE;
+
+      }
+
+
+      if(xmr <= 0){
+
+        alert(
+          "Masukkan jumlah XMR atau nominal Rupiah terlebih dahulu."
+        );
+
+        return;
+
+      }
+
+
+      rupiah =
+        xmr * XMR_PRICE;
+
+
+      const uid =
+        prompt(
+          "Masukkan Nomor UID Member penerima:",
+          ""
+        );
+
+
+      if(uid === null){
+        return;
+      }
+
+
+      if(!uid.trim()){
+
+        alert(
+          "Nomor UID Member wajib diisi."
+        );
+
+        return;
+
+      }
+
+
+      const cleanUid =
+        uid.trim();
+
+
+      const transactionId =
+        generateTransactionId();
+
+
+      const tanggal =
+        getCurrentDate();
+
+
+      proofData = {
+
+        uid:cleanUid,
+
+        xmr:xmr,
+
+        rupiah:rupiah,
+
+        tanggal:tanggal,
+
+        transactionId:transactionId,
+
+        status:"DIBUAT"
+
+      };
+
+
+      $("proofUid")
+        .textContent =
+        proofData.uid;
+
+
+      $("proofXmr")
+        .textContent =
+        formatXmr(
+          proofData.xmr
+        ) +
+        " XMR";
+
+
+      $("proofIdr")
+        .textContent =
+        formatRupiahDecimal(
+          proofData.rupiah
+        );
+
+
+      $("proofDate")
+        .textContent =
+        proofData.tanggal;
+
+
+      $("proofTx")
+        .textContent =
+        proofData.transactionId;
+
+
+      $("proofStatus")
+        .textContent =
+        proofData.status;
+
+
+      $("proofCard")
+        .style.display =
+        "block";
+
+
+      $("downloadBtn")
+        .disabled =
+        false;
+
+
+      $("proofCard")
+        .scrollIntoView({
+          behavior:"smooth",
+          block:"center"
+        });
+
+    }
+  );
+
+
+/* ==========================================
+   DOWNLOAD BUKTI SEBAGAI GAMBAR PNG
+========================================== */
+
+$("downloadBtn")
+  .addEventListener(
+    "click",
+    function(){
+
+      if(!proofData){
+
+        alert(
+          "Buat bukti terlebih dahulu."
+        );
+
+        return;
+
+      }
+
+
+      const canvas =
+        document.createElement("canvas");
+
+
+      const ctx =
+        canvas.getContext("2d");
+
+
+      const width =
+        1200;
+
+      const height =
+        1050;
+
+
+      canvas.width =
+        width;
+
+      canvas.height =
+        height;
+
+
+      /*
+        Background
+      */
+
+      ctx.fillStyle =
+        "#f5f2e9";
+
+      ctx.fillRect(
+        0,
+        0,
+        width,
+        height
+      );
+
+
+      /*
+        Header
+      */
+
+      ctx.fillStyle =
+        "#06101f";
+
+      ctx.fillRect(
+        0,
+        0,
+        width,
+        190
+      );
+
+
+      ctx.fillStyle =
+        "#f28c28";
+
+      ctx.font =
+        "bold 78px Arial";
+
+      ctx.textAlign =
+        "center";
+
+      ctx.fillText(
+        "M",
+        100,
+        120
+      );
+
+
+      ctx.fillStyle =
+        "#ffffff";
+
+      ctx.font =
+        "bold 42px Arial";
+
+      ctx.fillText(
+        "MYSHORT",
+        650,
+        75
+      );
+
+
+      ctx.font =
+        "24px Arial";
+
+      ctx.fillStyle =
+        "#cbd5e1";
+
+      ctx.fillText(
+        "XMR MINING CENTER",
+        650,
+        115
+      );
+
+
+      ctx.font =
+        "bold 35px Arial";
+
+      ctx.fillStyle =
+        "#20242b";
+
+      ctx.fillText(
+        "BUKTI PENGIRIMAN XMR",
+        600,
+        255
+      );
+
+
+      ctx.font =
+        "22px Arial";
+
+      ctx.fillStyle =
+        "#77736c";
+
+      ctx.fillText(
+        "Bukti pencatatan pengiriman kepada member",
+        600,
+        295
+      );
+
+
+      /*
+        Box data
+      */
+
+      const boxX =
+        65;
+
+      const boxY =
+        345;
+
+      const boxW =
+        1070;
+
+      const rowH =
+        78;
+
+
+      ctx.strokeStyle =
+        "#d5cfc1";
+
+      ctx.lineWidth =
+        2;
+
+      ctx.strokeRect(
+        boxX,
+        boxY,
+        boxW,
+        rowH * 6
+      );
+
+
+      const rows = [
+
+        [
+          "Nomor UID Member",
+          proofData.uid
+        ],
+
+        [
+          "Jumlah Transaksi XMR",
+          formatXmr(proofData.xmr) + " XMR"
+        ],
+
+        [
+          "Nilai Rupiah",
+          formatRupiahDecimal(proofData.rupiah)
+        ],
+
+        [
+          "Tanggal Pengiriman",
+          proofData.tanggal
+        ],
+
+        [
+          "ID Transaksi",
+          proofData.transactionId
+        ],
+
+        [
+          "Status",
+          proofData.status
+        ]
+
+      ];
+
+
+      rows.forEach(
+        (row,index) => {
+
+          const y =
+            boxY + index * rowH;
+
+
+          ctx.fillStyle =
+            "#eae5da";
+
+          ctx.fillRect(
+            boxX,
+            y,
+            390,
+            rowH
+          );
+
+
+          if(index > 0){
+
+            ctx.strokeStyle =
+              "#d5cfc1";
+
+            ctx.beginPath();
+
+            ctx.moveTo(
+              boxX,
+              y
+            );
+
+            ctx.lineTo(
+              boxX + boxW,
+              y
+            );
+
+            ctx.stroke();
+
+          }
+
+
+          ctx.beginPath();
+
+          ctx.moveTo(
+            boxX + 390,
+            y
+          );
+
+          ctx.lineTo(
+            boxX + 390,
+            y + rowH
+          );
+
+          ctx.stroke();
+
+
+          ctx.textAlign =
+            "left";
+
+          ctx.fillStyle =
+            "#625e57";
+
+          ctx.font =
+            "bold 22px Arial";
+
+          ctx.fillText(
+            row[0],
+            boxX + 25,
+            y + 47
+          );
+
+
+          ctx.fillStyle =
+            index === 1
+              ?"#a96700"
+              :"#20242b";
+
+
+          ctx.font =
+            index === 1
+              ?"bold 24px Arial"
+              :"bold 21px Arial";
+
+
+          ctx.fillText(
+            row[1],
+            boxX + 420,
+            y + 47
+          );
+
+        }
+      );
+
+
+      /*
+        Footer
+      */
+
+      ctx.textAlign =
+        "left";
+
+      ctx.fillStyle =
+        "#77736c";
+
+      ctx.font =
+        "18px Arial";
+
+      ctx.fillText(
+        "Harga referensi: Rp 9.181.017 / XMR",
+        65,
+        870
+      );
+
+      ctx.fillText(
+        "Dokumen ini dibuat berdasarkan data yang dimasukkan pada halaman MyShort.",
+        65,
+        910
+      );
+
+      ctx.fillText(
+        "ID transaksi pada dokumen ini merupakan nomor referensi pencatatan.",
+        65,
+        950
+      );
+
+
+      /*
+        Download PNG
+      */
+
+      const link =
+        document.createElement("a");
+
+
+      const safeUid =
+        proofData.uid
+          .replace(
+            /[^a-zA-Z0-9_-]/g,
+            "_"
+          );
+
+
+      link.download =
+        "Bukti_Pengiriman_XMR_" +
+        safeUid +
+        ".png";
+
+
+      link.href =
+        canvas.toDataURL(
+          "image/png"
+        );
+
+
+      document.body.appendChild(link);
+
+      link.click();
+
+      link.remove();
+
+    }
+  );
+
+
+/* ==========================================
+   START
+========================================== */
+
+buildPriceTable();
+
+updateFromXmr();
+
+</script>
+
+</body>
+</html>
