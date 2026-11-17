@@ -1,0 +1,587 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090909">
+<title>Profile - MyShort</title>
+<link rel="stylesheet" href="premium-brand.css">
+
+<style>
+:root{
+  --gold:#d9a441;
+  --gold2:#f5d27a;
+  --gold-dark:#9d7025;
+  --bg:#090909;
+  --panel:#191919;
+  --panel2:#222222;
+  --line:#39332a;
+  --text:#f5f1e8;
+  --muted:#aaa39a;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:Arial,sans-serif;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(193,139,47,.13),transparent 38%),
+    linear-gradient(160deg,#15120d 0%,#0d0d0d 48%,#080808 100%);
+  color:var(--text);
+  min-height:100vh;
+  padding-bottom:85px;
+}
+
+.container{max-width:520px;margin:auto;padding:18px 15px}
+
+.header{
+  display:flex;align-items:center;gap:12px;
+  margin-bottom:22px;
+}
+
+.logo{
+  width:43px;height:43px;border-radius:13px;
+  overflow:hidden;
+  background:linear-gradient(145deg,#f5c66b,#a96b19);
+  border:1px solid #f5d27a;
+  box-shadow:0 4px 14px #d9a44135;
+}
+
+.logo img{width:100%;height:100%;object-fit:contain}
+.header h2{font-size:18px;color:var(--gold2);letter-spacing:1px}
+.header small{font-size:11px;color:var(--muted)}
+
+/* KARTU PROFIL */
+.profile-card,.level-card{
+  background:linear-gradient(145deg,#242424,#171717 65%,#202020);
+  border:1px solid #51432b;
+  border-radius:21px;padding:18px;margin-bottom:16px;
+  box-shadow:7px 7px 18px #0008,
+  -3px -3px 12px #ffffff08,
+  inset 1px 1px 3px #ffffff0b;
+}
+
+.member{display:flex;align-items:center;gap:14px}
+
+.avatar{
+  width:56px;height:56px;flex-shrink:0;border-radius:50%;
+  background:linear-gradient(145deg,#f3c66c,#a96b19);
+  box-shadow:0 5px 15px #d9a44135,
+  inset 2px 2px 5px #ffffff55,
+  inset -3px -3px 6px #0004;
+  display:grid;place-items:center;
+  color:#21180a;font-size:23px;font-weight:bold;
+}
+
+.member h3{font-size:17px;margin-bottom:5px;color:#fff4d8}
+.member p{font-size:12px;color:var(--muted);line-height:1.6}
+
+.status{
+  display:inline-block;margin-top:5px;padding:5px 10px;
+  border-radius:20px;
+  background:linear-gradient(145deg,#5b451f,#302414);
+  border:1px solid #a98237;
+  color:#f5d27a;font-size:10px;font-weight:bold;
+}
+
+/* PROMO AI MINING */
+.promo{
+  display:block;text-decoration:none;
+  background:linear-gradient(120deg,#f1bd59,#bd8128 60%,#87551b);
+  border:1px solid #f5d27a;
+  border-radius:19px;padding:16px;margin-bottom:17px;
+  color:#211609;
+  box-shadow:0 8px 20px #c18b2f2b,
+  inset 2px 2px 5px #ffffff55,
+  inset -3px -3px 7px #0002;
+}
+.promo strong{color:#241808;font-size:15px}
+.promo p{font-size:12px;color:#38250d;margin-top:6px;line-height:1.6}
+
+.section-title{
+  color:var(--gold2);font-size:14px;
+  margin:20px 3px 11px;font-weight:bold;
+}
+
+/* MENU */
+.menu-card{
+  background:linear-gradient(145deg,#242424,#171717);
+  border:1px solid #51432b;border-radius:20px;overflow:hidden;
+  box-shadow:7px 7px 17px #0007,
+  inset 1px 1px 3px #ffffff08;
+}
+
+.menu-item{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 15px;color:#f2eee5;text-decoration:none;
+  border-bottom:1px solid #ffffff12;
+  font-size:13px;cursor:pointer;transition:.2s;
+}
+.menu-item:active{background:#d9a44118}
+.menu-item:last-child{border:0}
+.menu-left{display:flex;align-items:center;gap:12px}
+
+.menu-icon{
+  width:32px;height:32px;flex-shrink:0;border-radius:11px;
+  background:linear-gradient(145deg,#4b3920,#292016);
+  border:1px solid #80612d;
+  box-shadow:inset 2px 2px 5px #ffffff0c,
+  2px 2px 5px #0005;
+  color:var(--gold2);
+  display:grid;place-items:center;font-size:15px;
+}
+.arrow{color:var(--gold);font-size:20px}
+
+/* PENGATURAN TEMA */
+.theme-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 15px;border-bottom:1px solid #ffffff12;
+  color:#f2eee5;font-size:13px;
+}
+.theme-left{display:flex;align-items:center;gap:12px}
+.theme-description{
+  display:block;font-size:10px;color:var(--muted);margin-top:3px;
+}
+.theme-switch{position:relative;width:49px;height:27px;flex-shrink:0}
+.theme-switch input{opacity:0;width:0;height:0}
+.theme-slider{
+  position:absolute;inset:0;border-radius:30px;
+  background:#514735;cursor:pointer;transition:.25s;
+  box-shadow:inset 2px 2px 4px #0008;
+}
+.theme-slider:before{
+  content:"";position:absolute;width:19px;height:19px;
+  left:4px;top:4px;border-radius:50%;
+  background:#ddd;transition:.25s;
+}
+.theme-switch input:checked + .theme-slider{background:#a87929}
+.theme-switch input:checked + .theme-slider:before{
+  transform:translateX(22px);background:#ffe3a0;
+}
+
+/* LEVEL DAN PROGRESS */
+.level-card{margin-top:16px;margin-bottom:0}
+.level-top{
+  display:flex;justify-content:space-between;gap:8px;
+  font-size:13px;margin-bottom:12px;color:#f2eee5;
+}
+.level-top strong{color:var(--gold2)}
+.progress{
+  height:9px;background:#302b22;border-radius:20px;overflow:hidden;
+  box-shadow:inset 3px 3px 6px #0008;
+}
+.progress-fill{
+  height:100%;width:0;
+  background:linear-gradient(90deg,#a87522,#f5d27a,#d9a441);
+  border-radius:20px;
+  box-shadow:0 1px 7px #d9a44155;
+}
+.xp-info{
+  display:flex;justify-content:space-between;gap:8px;
+  color:#aaa39a;font-size:10px;margin-top:8px;
+}
+
+/* LOGOUT */
+.logout-btn{
+  width:100%;margin-top:18px;padding:14px;
+  background:linear-gradient(145deg,#302018,#1b1110);
+  border:1px solid #89513b;border-radius:15px;
+  color:#ffb5a1;font-size:13px;font-weight:bold;cursor:pointer;
+  box-shadow:5px 5px 12px #0006,inset 1px 1px 3px #ffffff08;
+}
+
+/* MODAL */
+.modal{
+  display:none;position:fixed;inset:0;z-index:1000;
+  background:#000b;align-items:center;justify-content:center;
+  padding:20px;backdrop-filter:blur(5px);
+}
+.modal-box{
+  width:100%;max-width:390px;
+  background:linear-gradient(145deg,#252525,#151515);
+  color:#f5f1e8;border:1px solid #70552c;
+  border-radius:20px;padding:20px;
+  box-shadow:10px 10px 26px #0009,
+  inset 1px 1px 3px #ffffff0b;
+}
+.modal-box h3{color:var(--gold2);font-size:17px;margin-bottom:15px}
+.account-row{
+  padding:10px 0;border-bottom:1px solid #ffffff16;
+  font-size:12px;display:flex;justify-content:space-between;gap:12px;
+}
+.account-row span:first-child{color:#aaa39a}
+.account-row span:last-child{
+  text-align:right;overflow-wrap:anywhere;color:#f5f1e8;
+}
+.modal-actions{display:flex;gap:10px;margin-top:18px}
+.modal-actions button{
+  flex:1;padding:11px;border:0;border-radius:11px;
+  font-weight:bold;cursor:pointer;
+}
+.btn-cancel{
+  background:linear-gradient(145deg,#383838,#242424);
+  border:1px solid #555!important;color:#eee;
+}
+.btn-confirm{
+  background:linear-gradient(145deg,#f5d27a,#bd8128);
+  color:#211609;
+}
+
+/* NAVIGASI BAWAH */
+.nav{
+  position:fixed;left:0;right:0;bottom:0;height:65px;
+  background:rgba(15,15,15,.97);
+  border-top:1px solid #554326;
+  display:flex;align-items:center;justify-content:space-around;
+  z-index:99;padding:5px 8px;
+  box-shadow:0 -6px 20px #0008;
+  backdrop-filter:blur(14px);
+}
+.nav a{
+  flex:1;height:100%;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:3px;
+  color:#918b80;text-decoration:none;font-size:10px;font-weight:500;
+}
+.nav a.active{color:var(--gold2)}
+.nav i{
+  width:23px;height:23px;display:flex;
+  align-items:center;justify-content:center;font-style:normal;
+}
+.nav svg{
+  width:20px;height:20px;stroke:currentColor;fill:none;
+  stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;
+}
+
+/* TOAST */
+.toast{
+  display:none;position:fixed;bottom:78px;left:50%;
+  transform:translateX(-50%);z-index:1200;
+  background:linear-gradient(145deg,#b77b24,#704819);
+  color:#fff;border:1px solid #f5d27a;border-radius:12px;
+  padding:10px 16px;font-size:12px;max-width:90%;
+  text-align:center;box-shadow:0 8px 22px #0007;
+}
+
+/* MODE TEMA TETAP HITAM GOLD */
+html.myshort-dark body{
+  background:
+    radial-gradient(circle at 50% 0%,rgba(193,139,47,.13),transparent 38%),
+    linear-gradient(160deg,#15120d 0%,#0d0d0d 48%,#080808 100%);
+}
+html.myshort-dark .nav{background:rgba(15,15,15,.97)}
+html.myshort-dark .nav a{color:#918b80}
+html.myshort-dark .nav a.active{color:var(--gold2)}
+
+@media(max-width:360px){
+  .nav a{font-size:9px}
+  .nav i,.nav svg{width:19px;height:19px}
+  .container{padding:15px 12px}
+}
+</style>
+</head>
+
+<body>
+<main class="container">
+
+<header class="header">
+  <div class="logo"><img src="logo.png" alt="MyShort Logo"></div>
+  <div><h2>MYSHORT</h2><small>Member Area</small></div>
+</header>
+
+<section class="profile-card">
+  <div class="member">
+    <div class="avatar" id="avatar">🛡</div>
+    <div>
+      <h3 id="profileName">Memuat profil...</h3>
+      <p id="profileUid">UID: -</p>
+      <span class="status" id="profileStatus">MEMBER</span>
+    </div>
+  </div>
+</section>
+
+<a class="promo" href="mission.html">
+  <strong>✦ AI MINING</strong>
+  <p>Kelola aktivitas mining dan periksa reward harian Anda.</p>
+</a>
+
+<h3 class="section-title">MENU AKUN</h3>
+
+<section class="menu-card">
+
+  <div class="theme-row">
+    <div class="theme-left">
+      <div class="menu-icon" id="themeIcon">☀</div>
+      <div>
+        <strong>Mode Tampilan</strong>
+        <small class="theme-description" id="themeLabel">Mode Gelap</small>
+      </div>
+    </div>
+    <label class="theme-switch" aria-label="Aktifkan mode gelap">
+      <input type="checkbox" id="themeToggle">
+      <span class="theme-slider"></span>
+    </label>
+  </div>
+
+  <div class="menu-item" onclick="showAccountInfo()">
+    <div class="menu-left"><div class="menu-icon">♙</div><span>Informasi Akun</span></div>
+    <span class="arrow">›</span>
+  </div>
+
+  <a class="menu-item" href="pengaturan-profile.html">
+    <div class="menu-left"><div class="menu-icon">⚙</div><span>Pengaturan</span></div>
+    <span class="arrow">›</span>
+  </a>
+
+  <a class="menu-item" href="referral.html">
+    <div class="menu-left"><div class="menu-icon">♧</div><span>Referral</span></div>
+    <span class="arrow">›</span>
+  </a>
+
+  <a class="menu-item" href="harga.html">
+    <div class="menu-left"><div class="menu-icon">◈</div><span>Nilai XMR</span></div>
+    <span class="arrow">›</span>
+  </a>
+
+  <a class="menu-item" href="history.html">
+    <div class="menu-left"><div class="menu-icon">◷</div><span>Riwayat</span></div>
+    <span class="arrow">›</span>
+  </a>
+
+  <a class="menu-item" href="keamanan.html">
+    <div class="menu-left"><div class="menu-icon">♧</div><span>Keamanan</span></div>
+    <span class="arrow">›</span>
+  </a>
+
+</section>
+
+<section class="level-card">
+  <div class="level-top">
+    <strong id="levelName">LEVEL MEMBER</strong>
+    <span id="xpValue">0 XP</span>
+  </div>
+  <div class="progress"><div class="progress-fill" id="xpProgress"></div></div>
+  <div class="xp-info">
+    <span>Progress Level</span>
+    <span id="xpNext">0 / 1000 XP</span>
+  </div>
+</section>
+
+<button class="logout-btn" onclick="profileLogout()">KELUAR DARI AKUN</button>
+
+</main>
+
+<div class="modal" id="accountModal">
+  <div class="modal-box">
+    <h3>Informasi Akun</h3>
+    <div class="account-row"><span>Nama</span><span id="infoName">-</span></div>
+    <div class="account-row"><span>UID</span><span id="infoUid">-</span></div>
+    <div class="account-row"><span>Email</span><span id="infoEmail">-</span></div>
+    <div class="account-row"><span>Telepon</span><span id="infoPhone">-</span></div>
+    <div class="account-row"><span>Referral</span><span id="infoReferral">-</span></div>
+    <div class="account-row"><span>Status</span><span id="infoStatus">-</span></div>
+    <div class="account-row"><span>Level</span><span id="infoLevel">-</span></div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeAccountInfo()">Tutup</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="logoutModal">
+  <div class="modal-box">
+    <h3>Konfirmasi Keluar</h3>
+    <p style="font-size:13px;color:#bbb;line-height:1.6">
+      Apakah Anda yakin ingin keluar dari akun MyShort?
+    </p>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeLogout()">Batal</button>
+      <button class="btn-confirm" onclick="confirmLogout()">Keluar</button>
+    </div>
+  </div>
+</div>
+
+<nav class="nav">
+  <a href="dashboard.html">
+    <i><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5M5.5 9.5V21h13V9.5M9 21v-7h6v7"/></svg></i>
+    <span>Home</span>
+  </a>
+  <a href="mission.html">
+    <i><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></i>
+    <span>Mission</span>
+  </a>
+  <a href="market.html">
+    <i><svg viewBox="0 0 24 24"><path d="M3 3v18h18M7 14l4-4 3 3 6-7M15 6h5v5"/></svg></i>
+    <span>Market</span>
+  </a>
+  <a href="profile.html" class="active">
+    <i><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></i>
+    <span>Profile</span>
+  </a>
+</nav>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+
+<script>
+let sb=window.sb||window.supabaseClient||window.supabaseClientInstance;
+let currentProfile=null;
+
+/* PENGATURAN TEMA */
+function applyMyShortTheme(dark){
+  document.documentElement.classList.toggle("myshort-dark",dark);
+  try{
+    localStorage.setItem("myshort-theme",dark?"dark":"light");
+  }catch(e){}
+
+  const toggle=document.getElementById("themeToggle");
+  const label=document.getElementById("themeLabel");
+  const icon=document.getElementById("themeIcon");
+
+  if(toggle)toggle.checked=dark;
+  if(label)label.textContent=dark?"Mode Gelap":"Mode Standar";
+  if(icon)icon.textContent=dark?"☾":"☀";
+
+  const meta=document.querySelector('meta[name="theme-color"]');
+  if(meta)meta.content="#090909";
+}
+
+function initMyShortTheme(){
+  let dark=false;
+  try{
+    dark=localStorage.getItem("myshort-theme")==="dark";
+  }catch(e){}
+
+  applyMyShortTheme(dark);
+
+  const toggle=document.getElementById("themeToggle");
+  if(toggle){
+    toggle.addEventListener("change",function(){
+      applyMyShortTheme(this.checked);
+      showToast(this.checked?"Mode Gelap diaktifkan":"Mode Standar diaktifkan");
+    });
+  }
+}
+
+function showToast(message){
+  const el=document.getElementById("toast");
+  el.textContent=message;
+  el.style.display="block";
+  clearTimeout(window.profileToastTimer);
+  window.profileToastTimer=setTimeout(()=>el.style.display="none",2500);
+}
+
+function setText(id,value){
+  const el=document.getElementById(id);
+  if(el)el.textContent=value==null||value===""?"-":value;
+}
+
+function showAccountInfo(){
+  if(!currentProfile){
+    showToast("Informasi akun belum tersedia");
+    return;
+  }
+
+  setText("infoName",currentProfile.full_name||currentProfile.username);
+  setText("infoUid",currentProfile.uid);
+  setText("infoEmail",currentProfile.email);
+  setText("infoPhone",currentProfile.phone);
+  setText("infoReferral",currentProfile.referral_code);
+  setText("infoStatus",currentProfile.status);
+  setText("infoLevel",currentProfile.level);
+
+  document.getElementById("accountModal").style.display="flex";
+}
+
+function closeAccountInfo(){
+  document.getElementById("accountModal").style.display="none";
+}
+
+function profileLogout(){
+  document.getElementById("logoutModal").style.display="flex";
+}
+
+function closeLogout(){
+  document.getElementById("logoutModal").style.display="none";
+}
+
+async function confirmLogout(){
+  if(!sb){
+    location.href="index.html";
+    return;
+  }
+
+  const{error}=await sb.auth.signOut();
+
+  if(error){
+    showToast("Gagal keluar: "+error.message);
+    return;
+  }
+
+  location.href="index.html";
+}
+
+async function loadProfile(){
+  if(!sb){
+    showToast("Konfigurasi Supabase tidak ditemukan");
+    return;
+  }
+
+  const{data:sessionData,error:sessionError}=await sb.auth.getSession();
+
+  if(sessionError||!sessionData?.session){
+    location.href="index.html";
+    return;
+  }
+
+  const user=sessionData.session.user;
+
+  const{data,error}=await sb.from("profiles")
+    .select("id,uid,username,full_name,email,phone,referral_code,status,level,xp,role")
+    .eq("id",user.id)
+    .maybeSingle();
+
+  if(error){
+    console.error("Gagal memuat profil:",error);
+    showToast("Gagal memuat data profil");
+    return;
+  }
+
+  currentProfile=data||{};
+
+  const name=currentProfile.full_name||
+    currentProfile.username||user.email||"Member MyShort";
+
+  const xp=Math.max(0,Number(currentProfile.xp||0));
+  const level=currentProfile.level||"Member";
+  const progress=Math.min(100,(xp%1000)/10);
+
+  setText("profileName",name);
+  setText("profileUid","UID: "+(currentProfile.uid||"-"));
+  setText("profileStatus",currentProfile.status||"MEMBER");
+  setText("avatar",String(name).trim().charAt(0).toUpperCase()||"M");
+
+  setText("levelName","LEVEL "+String(level).toUpperCase());
+  setText("xpValue",xp.toLocaleString("id-ID")+" XP");
+  setText("xpNext",(xp%1000).toLocaleString("id-ID")+" / 1000 XP");
+
+  document.getElementById("xpProgress").style.width=progress+"%";
+
+  if(!currentProfile.email)currentProfile.email=user.email||"";
+}
+
+document.addEventListener("DOMContentLoaded",function(){
+  initMyShortTheme();
+  loadProfile();
+});
+
+document.querySelectorAll(".modal").forEach(modal=>{
+  modal.addEventListener("click",e=>{
+    if(e.target===modal)modal.style.display="none";
+  });
+});
+</script>
+
+</body>
+</html>
