@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111318">
+<link rel="stylesheet" href="premium-brand.css">
+<title>Swap Rupiah ke XMR - MyShort</title>
+<style>
+:root{color-scheme:dark;--bg:#0d1015;--panel:#191e25;--panel2:#202731;--line:#343b45;--muted:#9da5af;--text:#f5f6f8;--gold:#ff941f;--gold2:#f4770b;--green:#35c78a;--red:#ff7777}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -15%,#243747 0%,#111b24 42%,var(--bg) 78%);color:var(--text);font-family:Inter,Roboto,system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
+.wrap{width:min(100% - 28px,480px);margin:0 auto;padding:18px 0 36px}.top{display:flex;align-items:center;justify-content:space-between;margin:4px 2px 25px}.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:.5px}.brand-mark{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(145deg,#f9ca68,#c88718);color:#17212a;font-size:21px;box-shadow:0 7px 20px #0006}.icon-btn{width:40px;height:40px;border:1px solid var(--line);background:#1a2732;border-radius:13px;color:#dce5eb;font-size:18px}
+h1{font-size:25px;letter-spacing:-.6px;margin:0 0 5px}.sub{color:var(--muted);font-size:13px;margin:0 0 20px;line-height:1.5}.balance{background:linear-gradient(135deg,#1b2a35,#14202a);border:1px solid #354956;border-radius:22px;padding:19px;margin-bottom:18px;box-shadow:0 14px 32px #0003}.eyebrow{font-size:10px;letter-spacing:1.2px;font-weight:800;color:var(--muted)}.balance-row{display:flex;align-items:baseline;gap:8px;margin:8px 0 12px}.balance-value{font-size:30px;font-weight:800;letter-spacing:-1px;overflow-wrap:anywhere}.balance-unit{color:#c2ced7;font-size:13px;font-weight:700}.balance-foot{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:12px}.status{display:inline-flex;align-items:center;gap:7px;font-size:11px;color:#c7d5df}.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px #35c78a88}.swap-card{border:1px solid #344653;background:linear-gradient(160deg,#192833,#131e27);border-radius:23px;padding:17px;box-shadow:0 16px 38px #0004}.field{background:#101a22;border:1px solid #344652;border-radius:17px;padding:15px 14px;margin-top:10px}.field-head{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.55px}.asset{display:flex;align-items:center;gap:9px;background:#263642;border:1px solid #3b4d59;border-radius:13px;padding:7px 10px;color:#f4f7fa;font-size:13px;font-weight:800}.asset-logo{width:25px;height:25px;border-radius:50%;display:grid;place-items:center;background:#f5b942;color:#17212a;font-size:12px;font-weight:900}.amount-line{display:flex;align-items:center;gap:8px;margin:14px 0 3px}.amount-line input{width:100%;min-width:0;background:transparent;border:0;outline:0;color:#fff;font-size:27px;font-weight:750;font-family:inherit}.amount-line input::placeholder{color:#637582}.currency{font-size:12px;color:#aebdc7;font-weight:800}.field-note{font-size:11px;color:#8395a2;margin-top:7px}.max{border:0;background:#3b321e;color:#f5c96e;border-radius:8px;padding:6px 9px;font-size:10px;font-weight:800}.switch{display:grid;place-items:center;width:38px;height:38px;margin:-1px auto;border:4px solid #17232e;border-radius:13px;background:var(--gold);color:#17212a;font-size:19px;position:relative;z-index:1;box-shadow:0 4px 13px #0005}.estimate{margin-top:14px;padding:13px 14px;border-radius:15px;background:#101a22;border:1px solid #2e414d}.estrow{display:flex;justify-content:space-between;gap:12px;font-size:12px;margin:7px 0}.estrow span:first-child{color:var(--muted)}.estrow strong{font-weight:750;text-align:right}.notice{display:flex;gap:9px;padding:12px;margin:14px 0 0;background:#2a261b;border:1px solid #62502a;border-radius:13px;color:#e8d5a7;font-size:11px;line-height:1.5}.btn{width:100%;border:0;border-radius:15px;padding:16px 14px;margin-top:15px;font-weight:850;font-size:13px;letter-spacing:.5px;background:linear-gradient(135deg,#f8cb6b,#d99a26);color:#18212a;box-shadow:0 8px 18px #c88b2633}.btn:disabled{opacity:.48;filter:grayscale(.4);box-shadow:none}.history{margin-top:20px;background:#17232d;border:1px solid #2e414d;border-radius:18px;padding:16px}.history h2{font-size:14px;margin:0 0 9px}.history p{font-size:12px;color:var(--muted);line-height:1.5;margin:0}.foot{text-align:center;color:#6f818e;font-size:10px;margin-top:20px}.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#263642;border:1px solid #536572;color:#fff;padding:12px 16px;border-radius:12px;font-size:12px;max-width:calc(100% - 30px);transition:.25s;z-index:5}.toast.show{opacity:1;transform:translate(-50%,0)}.loading{color:var(--muted);font-size:12px}
+body{background:radial-gradient(ellipse at 50% -15%,#332316 0%,#17191d 42%,#0d1015 80%)}
+.top{margin-bottom:24px;min-height:46px}.sp-header-brand{justify-content:flex-start;margin:0;gap:10px}.sp-header-brand .sp-logo{width:43px!important;height:43px!important;min-width:43px!important;min-height:43px!important;object-fit:contain!important;border-radius:12px!important;border:1px solid rgba(255,148,31,.55)!important;box-shadow:0 5px 18px #0008!important}.sp-header-brand strong{font-size:16px!important;letter-spacing:.4px;color:#fff!important}.sp-header-brand small{font-size:9px!important;letter-spacing:.65px;color:#aeb3bb!important}
+h1{color:#fff;font-size:24px}.balance{background:linear-gradient(145deg,#24272d,#191d23);border-color:#414047;box-shadow:0 16px 34px #0005}.balance-value,.amount-line input,.amount-line input:focus,#xmrEstimate{color:#ff9a32!important;font-variant-numeric:tabular-nums}.balance-unit{color:#ffad55}.field{background:#11161c;border-color:#3a414a}.amount-line input{caret-color:#ff941f}.amount-line input::placeholder{color:#765a40}.currency{color:#ffad55}.max{background:rgba(255,137,25,.14);border:1px solid rgba(255,148,31,.42);color:#ffad55}.asset-logo{background:linear-gradient(145deg,#ffad55,#f4770b);color:#17191d}.switch{background:linear-gradient(145deg,#ffad55,#f4770b);color:#17191d;border-color:#191e25;box-shadow:0 5px 17px #f4770b35}.estimate{background:#11161c;border-color:#3b4149}.estrow strong{color:#ffad55;font-variant-numeric:tabular-nums}.notice{background:#2a2118;border-color:#70451f;color:#f1c18f}.btn{background:linear-gradient(135deg,#ffad55 0%,#ff8a1f 52%,#e96c08 100%);color:#17191d;box-shadow:0 9px 22px rgba(244,119,11,.25);font-size:14px;letter-spacing:.7px}.btn:disabled{opacity:.62;filter:none;background:linear-gradient(135deg,#b96c28,#965016);color:#191919}.history{background:linear-gradient(145deg,#1d2229,#151a20);border-color:#363d46}.icon-btn{background:#20252c;border-color:#414751}.foot{letter-spacing:1.1px}
+@media(max-width:360px){.balance-value{font-size:26px}.amount-line input{font-size:24px}h1{font-size:22px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="top">
+    <div class="sp-header-brand"><img class="sp-logo" src="logo.png" alt="Logo MyShort"><span><strong>MYSHORT</strong><small>MINING • MISSION • REFERRAL</small></span></div>
+    <button class="icon-btn" id="refreshBtn" aria-label="Muat ulang">↻</button>
+  </header>
+  <br>SWAP IDR ➡ KOIN</br>
+  <p class="sub"> </p>
+  <section class="balance">
+    <div class="eyebrow">SALDO RUPIAH TERSEDIA</div>
+    <div class="balance-row"><div class="balance-value" id="mainBalance">Rp —</div><div class="balance-unit">IDR</div></div>
+    <div class="balance-foot"><span id="memberLabel">Memeriksa akun...</span><span class="status"><i class="dot"></i><span id="connectionLabel">Menghubungkan</span></span></div>
+  </section>
+  <section class="balance" style="margin-top:-3px">
+    <div class="eyebrow">SALDO XMR INTERNAL MYSHORT</div>
+    <div class="balance-row"><div class="balance-value" id="xmrBalance">0.000000000000</div><div class="balance-unit">XMR</div></div>
+    <div class="balance-foot"><span>Saldo gabungan akun mining</span><span>Internal MyShort</span></div>
+  </section>
+  <section class="swap-card">
+    <div class="field">
+      <div class="field-head"><span>ANDA MEMBAYAR</span><span>Saldo Rupiah</span></div>
+      <div class="amount-line"><input id="idrAmount" type="number" min="10000" step="1000" inputmode="numeric" placeholder="0" autocomplete="off"><span class="currency">IDR</span></div>
+      <div class="field-head"><span id="availableLabel">Tersedia: Rp —</span><button class="max" id="maxBtn" type="button">MAKS</button></div>
+    </div>
+    <div class="switch" aria-hidden="true">↓</div>
+    <div class="field">
+      <div class="field-head"><span>ANDA MENERIMA</span><span>Estimasi koin</span></div>
+      <div class="amount-line"><div id="xmrEstimate" style="font-size:25px;font-weight:800;overflow-wrap:anywhere">—</div><span class="currency">XMR</span></div>
+      <div class="field-head"><span>koin</span><span class="asset"><i class="asset-logo">ɱ</i> XMR</span></div>
+      <div class="field-note" id="rateLabel">Kurs XMR akan dimuat dari sumber rate resmi MyShort.</div>
+    </div>
+    <div class="estimate">
+      <div class="estrow"><span>Jumlah Rupiah</span><strong id="idrPreview">Rp 0</strong></div>
+      <div class="estrow"><span>Kurs swap</span><strong id="ratePreview">Belum tersedia</strong></div>
+      <div class="estrow"><span>Biaya</span><strong id="feePreview">Ditentukan server</strong></div>
+    </div>
+    <div class="notice"><span>ⓘ</span><span>Biaya swap 12,5% dipotong langsung.Hasil konversi masuk sebagai saldo internal MyShort</span></div>
+    <button class="btn" id="swapBtn" type="button" disabled>MEMERIKSA KONFIGURASI SWAP...</button>
+  </section>
+  <section class="history"><h2>Riwayat swap</h2><div id="historyList"><p>Riwayat akan dimuat setelah akun terhubung.</p></div></section>
+  <section class="history" style="margin-top:12px"><h2>Keamanan transaksi</h2><p>Hasil swap ditambahkan ke saldo internal akun dan tercatat dalam riwayat.</p></section>
+  <div class="foot">MYSHORT • WALLET</div>
+</main>
+<div class="toast" id="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script>
+'use strict';
+(() => {
+  const $ = id => document.getElementById(id);
+  const money = n => 'Rp ' + Number(n || 0).toLocaleString('id-ID', {maximumFractionDigits:2});
+  let sb = window.sb || window.supabaseClient || null;
+  let user = null, balance = 0, quote = null, pendingKey = null, pendingAmount = null;
+  function toast(message){
+    const el=$('toast'); el.textContent=message; el.classList.add('show');
+    setTimeout(()=>el.classList.remove('show'),3800);
+  }
+  function uuid(){
+    if (crypto.randomUUID) return crypto.randomUUID();
+    const a=new Uint8Array(16); crypto.getRandomValues(a);
+    a[6]=(a[6]&15)|64; a[8]=(a[8]&63)|128;
+    const h=[...a].map(x=>x.toString(16).padStart(2,'0')).join('');
+    return h.slice(0,8)+'-'+h.slice(8,12)+'-'+h.slice(12,16)+'-'+h.slice(16,20)+'-'+h.slice(20);
+  }
+  function updateEstimate(){
+    const amount=Number($('idrAmount').value || 0);
+    $('idrPreview').textContent=money(amount);
+    if(!quote || !Number(quote.idr_per_xmr) || amount<=0){
+      $('xmrEstimate').textContent='—';
+      $('ratePreview').textContent=quote?.idr_per_xmr ? money(quote.idr_per_xmr)+' / XMR' : 'Belum tersedia';
+      $('feePreview').textContent='12,5%'; return;
+    }
+    const fee=Math.round((amount*0.125)*100)/100;
+    const net=amount-fee;
+    $('xmrEstimate').textContent=(net/Number(quote.idr_per_xmr)).toFixed(12);
+    $('ratePreview').textContent=money(quote.idr_per_xmr)+' / XMR';
+    $('feePreview').textContent=money(fee)+' (12,5%)';
+  }
+  function updateButton(){
+    const amount=Number($('idrAmount').value || 0);
+    const valid=!!user && !!quote && quote.is_enabled===true && Number(quote.idr_per_xmr)>0 && amount>=10000 && amount<=balance;
+    $('swapBtn').disabled=!valid;
+    $('swapBtn').textContent=quote?.is_enabled===true ? 'TUKAR RUPIAH KE XMR' : 'SWAP BELUM DIAKTIFKAN ADMIN';
+  }
+  async function loadQuote(){
+    const {data,error}=await sb.rpc('get_rupiah_to_xmr_quote');
+    if(error) throw new Error('Gagal memuat kurs swap: '+error.message);
+    quote=Array.isArray(data)?data[0]:data;
+    if(!quote) throw new Error('Konfigurasi kurs swap belum tersedia.');
+    $('rateLabel').textContent=Number(quote.idr_per_xmr)>0 ? 'Kurs MyShort: '+money(quote.idr_per_xmr)+' untuk 1 XMR' : 'Kurs XMR belum diatur admin.';
+    if(quote.is_enabled!==true) $('rateLabel').textContent+=' Fitur masih nonaktif.';
+    updateEstimate(); updateButton();
+  }
+  async function loadXmrBalance(){
+    const {data,error}=await sb.from('mining_wallets').select('available_amount').eq('user_id',user.id).eq('asset_code','XMR').maybeSingle();
+    if(error) throw new Error('Gagal membaca saldo XMR internal: '+error.message);
+    $('xmrBalance').textContent=Number(data?.available_amount || 0).toFixed(12);
+  }
+  async function loadHistory(){
+    const {data,error}=await sb.from('rupiah_xmr_swaps').select('id,gross_idr,fee_idr,xmr_amount,created_at,status').eq('user_id',user.id).order('created_at',{ascending:false}).limit(10);
+    if(error) throw error;
+    const host=$('historyList'); host.replaceChildren();
+    if(!data?.length){const p=document.createElement('p');p.textContent='Belum ada transaksi swap.';host.append(p);return;}
+    data.forEach(row=>{
+      const item=document.createElement('div'); item.style.cssText='display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid #303943;font-size:12px';
+      const left=document.createElement('div'),right=document.createElement('div'); right.style.textAlign='right';
+      const a=document.createElement('strong'); a.textContent=money(row.gross_idr); a.style.display='block';
+      const b=document.createElement('small'); b.textContent=new Date(row.created_at).toLocaleString('id-ID'); b.style.color='#9da5af';
+      const c=document.createElement('strong'); c.textContent=Number(row.xmr_amount).toFixed(12)+' XMR'; c.style.color='#ffad55'; c.style.display='block';
+      const d=document.createElement('small'); d.textContent='Biaya '+money(row.fee_idr); d.style.color='#9da5af';
+      left.append(a,b); right.append(c,d); item.append(left,right); host.append(item);
+    });
+  }
+  async function load(){
+    $('refreshBtn').disabled=true; $('connectionLabel').textContent='Menghubungkan';
+    try{
+      if(!sb) throw new Error('Supabase tidak ditemukan. Pastikan supabase-config.js satu folder dengan file ini.');
+      const auth=await sb.auth.getUser(); if(auth.error) throw auth.error;
+      user=auth.data?.user || null;
+      if(!user){location.href='login.html';return;}
+      $('memberLabel').textContent=user.email || 'Akun MyShort';
+      const {data,error}=await sb.from('wallets').select('balance').eq('user_id',user.id).maybeSingle();
+      if(error) throw error;
+      balance=Number(data?.balance || 0);
+      await loadXmrBalance();
+      if(!Number.isFinite(balance)||balance<0) throw new Error('Data saldo Rupiah tidak valid.');
+      $('mainBalance').textContent=money(balance); $('availableLabel').textContent='Tersedia: '+money(balance);
+      await loadQuote(); await loadHistory();
+      $('connectionLabel').textContent='Supabase terhubung';
+    }catch(error){
+      console.error('Swap Rupiah:',error); $('connectionLabel').textContent='Perlu pemeriksaan';
+      if(!quote) $('rateLabel').textContent='Kurs belum dapat dimuat.';
+      toast(error?.message || 'Gagal memuat data MyShort.');
+    }finally{$('refreshBtn').disabled=false;updateButton();}
+  }
+  $('idrAmount').addEventListener('input',()=>{
+    const amount=Number($('idrAmount').value || 0);
+    if(pendingAmount!==amount){pendingKey=null;pendingAmount=null;}
+    updateEstimate();updateButton();
+  });
+  $('maxBtn').addEventListener('click',()=>{$('idrAmount').value=Math.floor(balance);$('idrAmount').dispatchEvent(new Event('input'));});
+  $('refreshBtn').addEventListener('click',load);
+  $('swapBtn').addEventListener('click',async()=>{
+    const amount=Number($('idrAmount').value || 0);
+    if(!user||!quote||quote.is_enabled!==true||!Number.isFinite(amount)||amount<10000||amount>balance){toast('Periksa jumlah Rupiah dan status swap.');return;}
+    const fee=Math.round(amount*0.125*100)/100, net=amount-fee, estimate=net/Number(quote.idr_per_xmr);
+    if(!confirm('Konfirmasi swap internal?\\n\\nJumlah: '+money(amount)+'\\nBiaya 12,5%: '+money(fee)+'\\nNilai konversi: '+money(net)+'\\nEstimasi: '+estimate.toFixed(12)+' XMR\\n\\nHasil masuk ke saldo internal MyShort.')) return;
+    if(!pendingKey||pendingAmount!==amount){pendingKey=uuid();pendingAmount=amount;}
+    const btn=$('swapBtn'); btn.disabled=true; btn.textContent='MEMPROSES SWAP...';
+    try{
+      // Nama RPC harus sama persis dengan fungsi SQL yang sudah dibuat.
+      const {data,error}=await sb.rpc('request_rupiah_to_xmr',{p_rupiah_amount:amount,p_idempotency_key:pendingKey});
+      if(error) throw error;
+      const result=Array.isArray(data)?data[0]:data;
+      const received=Number(result?.xmr_amount ?? estimate);
+      pendingKey=null;pendingAmount=null;$('idrAmount').value='';
+      toast('Swap berhasil. Saldo bertambah '+received.toFixed(12)+' XMR internal.');
+      await load();
+    }catch(error){
+      console.error('Request swap:',error);
+      toast(error?.message || 'Swap gagal. Coba ulangi; permintaan memakai kunci yang sama.');
+      updateButton();
+    }
+  });
+  load();
+})();
+</script>
+</body>
+</html>
