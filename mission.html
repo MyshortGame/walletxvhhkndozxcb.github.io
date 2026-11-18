@@ -1,0 +1,1265 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090909">
+<title>MyShort Crypto Market</title>
+
+<style>
+:root {
+  --bg: #090909;
+  --panel: #141414;
+  --panel2: #1b1b1b;
+  --gold: #d6ad55;
+  --gold2: #f4d58a;
+  --text: #f5f5f5;
+  --muted: #999;
+  --green: #20c982;
+  --red: #ff5d65;
+  --border: rgba(214,173,85,.22);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background:
+    radial-gradient(circle at top, #292014 0, transparent 38%),
+    var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 18px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 18px 0 22px;
+}
+
+.brand {
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: var(--gold2);
+}
+
+.brand span {
+  color: white;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.live {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--green);
+  font-size: 12px;
+  border: 1px solid rgba(32,201,130,.3);
+  padding: 9px 12px;
+  border-radius: 20px;
+  background: rgba(32,201,130,.07);
+}
+
+.live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+}
+
+.hero {
+  background: linear-gradient(135deg, #211b10, #111 65%);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 22px;
+  margin-bottom: 18px;
+  box-shadow: 0 10px 35px rgba(0,0,0,.3);
+}
+
+.hero-label {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.hero h1 {
+  font-size: clamp(25px, 5vw, 38px);
+  margin: 12px 0 8px;
+  color: var(--gold2);
+}
+
+.hero p {
+  color: #aaa;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.stat {
+  background: rgba(255,255,255,.045);
+  border: 1px solid rgba(255,255,255,.07);
+  padding: 13px;
+  border-radius: 12px;
+}
+
+.stat small {
+  color: #999;
+  font-size: 11px;
+}
+
+.stat strong {
+  display: block;
+  margin-top: 7px;
+  color: var(--gold2);
+  font-size: 17px;
+}
+
+.toolbar {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0 14px;
+  flex-wrap: wrap;
+}
+
+.search {
+  flex: 1;
+  min-width: 180px;
+  background: #171717;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 13px 14px;
+  color: white;
+  outline: none;
+  font-size: 14px;
+}
+
+.search:focus {
+  border-color: var(--gold);
+}
+
+.refresh-btn {
+  background: linear-gradient(135deg, #f0d18a, #b88936);
+  color: #17120a;
+  border: none;
+  border-radius: 10px;
+  padding: 0 18px;
+  font-weight: bold;
+  cursor: pointer;
+  min-height: 43px;
+}
+
+.section-title {
+  color: var(--gold2);
+  font-size: 16px;
+  margin: 20px 0 12px;
+}
+
+.market-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.market-head,
+.coin-row {
+  display: grid;
+  grid-template-columns: 2fr 1.4fr 1fr 1.2fr 90px;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 17px;
+}
+
+.market-head {
+  color: #999;
+  background: #1b1b1b;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .7px;
+}
+
+.coin-row {
+  border-top: 1px solid rgba(255,255,255,.055);
+  min-height: 76px;
+}
+
+.coin-row:hover {
+  background: rgba(214,173,85,.055);
+}
+
+.coin-name {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+}
+
+.coin-name img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #292929;
+}
+
+.coin-title {
+  font-size: 13px;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.coin-symbol {
+  color: #999;
+  font-size: 10px;
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+.price {
+  font-size: 13px;
+  font-weight: bold;
+  color: white;
+  overflow-wrap: anywhere;
+}
+
+.change {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.up {
+  color: var(--green);
+}
+
+.down {
+  color: var(--red);
+}
+
+.spark {
+  width: 100%;
+  height: 38px;
+}
+
+.detail-btn {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold2);
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.detail-btn:hover {
+  background: var(--gold);
+  color: #111;
+}
+
+.loading,
+.error,
+.empty {
+  padding: 35px 15px;
+  text-align: center;
+  color: #aaa;
+  font-size: 13px;
+}
+
+.error {
+  color: var(--red);
+}
+
+.footer {
+  text-align: center;
+  color: #777;
+  font-size: 11px;
+  line-height: 1.7;
+  padding: 25px 5px;
+}
+
+/* DETAIL MODAL */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.85);
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  overflow-y: auto;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-box {
+  width: 100%;
+  max-width: 650px;
+  background: #151515;
+  border: 1px solid var(--gold);
+  border-radius: 17px;
+  padding: 20px;
+  margin: auto;
+  box-shadow: 0 15px 60px #000;
+}
+
+.modal-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-coin {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.modal-coin img {
+  width: 42px;
+  height: 42px;
+}
+
+.modal-coin h2 {
+  color: var(--gold2);
+  font-size: 18px;
+}
+
+.modal-coin small {
+  color: #999;
+}
+
+.close {
+  border: 0;
+  background: #292929;
+  color: white;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.detail-price {
+  font-size: 27px;
+  color: white;
+  font-weight: bold;
+  margin: 20px 0 7px;
+  overflow-wrap: anywhere;
+}
+
+.detail-change {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.periods {
+  display: flex;
+  gap: 8px;
+  margin: 18px 0;
+}
+
+.period-btn {
+  flex: 1;
+  padding: 10px;
+  background: #242424;
+  color: #aaa;
+  border: 1px solid #333;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.period-btn.active {
+  background: var(--gold);
+  color: #111;
+  border-color: var(--gold);
+  font-weight: bold;
+}
+
+.chart-wrap {
+  height: 230px;
+  width: 100%;
+  position: relative;
+  background: #101010;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+#detailChart {
+  width: 100%;
+  height: 100%;
+}
+
+.detail-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.detail-stat {
+  background: #202020;
+  border: 1px solid #303030;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.detail-stat small {
+  color: #999;
+  font-size: 11px;
+}
+
+.detail-stat strong {
+  display: block;
+  color: var(--gold2);
+  font-size: 13px;
+  margin-top: 6px;
+  overflow-wrap: anywhere;
+}
+
+.modal-loading {
+  text-align: center;
+  padding: 20px;
+  color: #aaa;
+  font-size: 12px;
+}
+
+@media(max-width:700px) {
+  .container {
+    padding: 12px;
+  }
+
+  .market-head {
+    display: none;
+  }
+
+  .coin-row {
+    grid-template-columns: 1.5fr 1fr 75px;
+    gap: 8px;
+    padding: 13px 10px;
+  }
+
+  .coin-row .spark-cell {
+    display: none;
+  }
+
+  .coin-name img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .coin-title {
+    font-size: 12px;
+  }
+
+  .price {
+    font-size: 12px;
+  }
+
+  .detail-btn {
+    padding: 8px 6px;
+    font-size: 10px;
+  }
+
+  .stats {
+    gap: 7px;
+  }
+
+  .stat {
+    padding: 10px;
+  }
+
+  .stat strong {
+    font-size: 14px;
+  }
+
+  .hero {
+    padding: 17px;
+  }
+}
+
+@media(max-width:380px) {
+  .coin-row {
+    grid-template-columns: 1.3fr 1fr 65px;
+  }
+
+  .coin-name {
+    gap: 7px;
+  }
+
+  .coin-name img {
+    width: 26px;
+    height: 26px;
+  }
+
+  .price {
+    font-size: 11px;
+  }
+}
+
+
+/* SALDO MEMBER MYSHORT */
+.member-balance{margin:0 0 18px;padding:16px 18px;border:1px solid var(--border);border-radius:18px;background:linear-gradient(135deg,#211b10,#141414 72%);box-shadow:0 8px 24px rgba(0,0,0,.22)}
+.member-balance-label{color:var(--gold);font-size:12px;font-weight:800;letter-spacing:1.5px}
+.member-balance-value{margin-top:8px;color:var(--gold2);font-size:clamp(24px,6vw,32px);font-weight:900;overflow-wrap:anywhere}
+.member-balance-status{margin-top:6px;color:#999;font-size:12px;line-height:1.5}
+
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<header>
+  <div>
+    <div class="brand">MYSHORT <span>MARKET</span></div>
+    <div class="subtitle">CRYPTO MARKET INDONESIA</div>
+  </div>
+  <div class="live">
+    <span class="live-dot"></span>
+    MARKET DATA
+  </div>
+</header>
+
+<section class="member-balance" id="memberBalanceCard" aria-live="polite">
+  <div class="member-balance-label">SALDO RUPIAH</div>
+  <div class="member-balance-value" id="memberBalanceValue">Memuat saldo...</div>
+  <div class="member-balance-status" id="memberBalanceStatus">Memeriksa akun...</div>
+</section>
+
+
+  <div class="stats">
+    <div class="stat">
+      <small>Jumlah Koin</small>
+      <strong id="coinCount">--</strong>
+    </div>
+    <div class="stat">
+      <small>Terakhir Update</small>
+      <strong id="lastUpdate">--:--</strong>
+    </div>
+    <div class="stat">
+      <small>Update Otomatis</small>
+      <strong>60 Detik</strong>
+    </div>
+  </div>
+</section>
+
+<div class="toolbar">
+  <input
+    type="search"
+    class="search"
+    id="searchInput"
+    placeholder="Cari nama koin atau simbol..."
+    autocomplete="off"
+  >
+  <button class="refresh-btn" id="refreshBtn" onclick="loadMarket()">
+    ↻ Refresh
+  </button>
+</div>
+
+<h3 class="section-title">DAFTAR HARGA KRIPTO</h3>
+
+<div class="market-card">
+  <div class="market-head">
+    <div>Aset</div>
+    <div>Harga (IDR)</div>
+    <div>24 Jam</div>
+    <div>Grafik 7 Hari</div>
+    <div>Detail</div>
+  </div>
+
+  <div id="coinList">
+    <div class="loading">Menghubungkan ke data pasar...</div>
+  </div>
+</div>
+
+<div class="footer">
+  MYSHORT CRYPTO MARKET<br>
+  Data harga disediakan oleh CoinGecko API.<br>
+  Harga pasar dapat berubah sewaktu-waktu.
+</div>
+
+</div>
+
+<!-- DETAIL MODAL -->
+<div class="modal" id="detailModal" onclick="outsideClose(event)">
+  <div class="modal-box">
+    <div class="modal-top">
+      <div class="modal-coin">
+        <img id="detailImage" src="" alt="">
+        <div>
+          <h2 id="detailName">Nama Koin</h2>
+          <small id="detailSymbol">SYMBOL</small>
+        </div>
+      </div>
+      <button class="close" onclick="closeDetail()">×</button>
+    </div>
+
+    <div class="detail-price" id="detailPrice">--</div>
+    <div class="detail-change" id="detailChange">--</div>
+
+    <div class="periods">
+      <button class="period-btn active" data-days="1" onclick="changePeriod(1,this)">1 Hari</button>
+      <button class="period-btn" data-days="7" onclick="changePeriod(7,this)">7 Hari</button>
+      <button class="period-btn" data-days="30" onclick="changePeriod(30,this)">30 Hari</button>
+    </div>
+
+    <div class="chart-wrap">
+      <canvas id="detailChart"></canvas>
+    </div>
+
+    <div id="chartMessage" class="modal-loading"></div>
+
+    <div class="detail-stats">
+      <div class="detail-stat">
+        <small>Market Cap</small>
+        <strong id="detailMarketCap">--</strong>
+      </div>
+      <div class="detail-stat">
+        <small>Volume 24 Jam</small>
+        <strong id="detailVolume">--</strong>
+      </div>
+      <div class="detail-stat">
+        <small>Harga Tertinggi 24 Jam</small>
+        <strong id="detailHigh">--</strong>
+      </div>
+      <div class="detail-stat">
+        <small>Harga Terendah 24 Jam</small>
+        <strong id="detailLow">--</strong>
+      </div>
+      <div class="detail-stat">
+        <small>Peringkat Pasar</small>
+        <strong id="detailRank">--</strong>
+      </div>
+      <div class="detail-stat">
+        <small>Perubahan 24 Jam</small>
+        <strong id="detailPercent">--</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script>
+"use strict";
+
+/* =========================================
+   KONFIGURASI MARKET
+========================================= */
+
+const API = "https://api.coingecko.com/api/v3";
+
+const COIN_IDS = [
+  "monero",
+  "tether",
+  "binancecoin",
+  "solana",
+  "bitcoin",
+  "ethereum",
+  "ripple",
+  "cardano",
+  "dogecoin",
+  "tron",
+  "litecoin",
+  "the-open-network",
+  "avalanche-2",
+  "polkadot",
+  "chainlink"
+];
+
+let marketData = [];
+let selectedCoin = null;
+let currentPeriod = 1;
+let chartRequestId = 0;
+let refreshTimer = null;
+
+/* =========================================
+   FORMAT ANGKA
+========================================= */
+
+function rupiah(value) {
+  if (value === null || value === undefined || !Number.isFinite(Number(value))) {
+    return "Tidak tersedia";
+  }
+
+  return "Rp" + Number(value).toLocaleString("id-ID", {
+    maximumFractionDigits: 2
+  });
+}
+
+function compactRupiah(value) {
+  if (value === null || value === undefined || !Number.isFinite(Number(value))) {
+    return "--";
+  }
+
+  return "Rp" + Number(value).toLocaleString("id-ID", {
+    notation: "compact",
+    maximumFractionDigits: 2
+  });
+}
+
+function percent(value) {
+  if (value === null || value === undefined || !Number.isFinite(Number(value))) {
+    return "--";
+  }
+
+  const number = Number(value);
+  return (number > 0 ? "+" : "") + number.toFixed(2) + "%";
+}
+
+function safeNumber(value) {
+  return Number.isFinite(Number(value)) ? Number(value) : null;
+}
+
+/* =========================================
+   SALDO MEMBER DARI SUPABASE MYSHORT
+========================================= */
+async function loadMemberBalance(){
+  const valueEl=document.getElementById("memberBalanceValue");
+  const statusEl=document.getElementById("memberBalanceStatus");
+  if(!valueEl||!statusEl)return;
+
+  if(!window.sb||typeof window.currentUser!=="function"||typeof window.loadWallet!=="function"){
+    valueEl.textContent="--";
+    statusEl.textContent="Supabase belum siap. Pastikan supabase-config.js berada di folder yang sama.";
+    return;
+  }
+  try{
+    const user=await window.currentUser();
+    if(!user){
+      valueEl.textContent="--";
+      statusEl.textContent="Sesi login tidak ditemukan. Silakan login kembali.";
+      return;
+    }
+    const wallet=await window.loadWallet();
+    if(!wallet){
+      valueEl.textContent="Rp 0";
+      statusEl.textContent="Dompet member belum tersedia untuk akun ini.";
+      return;
+    }
+    const amount=Number(wallet.balance||0);
+    valueEl.textContent=typeof window.moneyIDR==="function"?window.moneyIDR(amount):"Rp "+amount.toLocaleString("id-ID");
+    statusEl.textContent="Saldo akun yang sedang login";
+  }catch(error){
+    console.error("Gagal memuat saldo member:",error);
+    valueEl.textContent="--";
+    statusEl.textContent="Saldo gagal dimuat: "+(error?.message||"periksa sesi login dan izin tabel wallets");
+  }
+}
+
+/* =========================================
+   AMBIL DATA MARKET
+========================================= */
+
+async function loadMarket() {
+  const list = document.getElementById("coinList");
+  const refresh = document.getElementById("refreshBtn");
+
+  refresh.disabled = true;
+  refresh.textContent = "Memuat...";
+
+  if (marketData.length === 0) {
+    list.innerHTML = '<div class="loading">Mengambil data harga kripto...</div>';
+  }
+
+  try {
+    const url =
+      API + "/coins/markets" +
+      "?vs_currency=idr" +
+      "&ids=" + encodeURIComponent(COIN_IDS.join(",")) +
+      "&order=market_cap_desc" +
+      "&per_page=100" +
+      "&page=1" +
+      "&sparkline=true" +
+      "&price_change_percentage=24h";
+
+    const response = await fetch(url, {
+      headers: { "accept": "application/json" },
+      cache: "no-store"
+    });
+
+    if (!response.ok) {
+      throw new Error(
+        response.status === 429
+          ? "Batas permintaan API tercapai. Coba beberapa saat lagi."
+          : "Server market memberikan respons " + response.status
+      );
+    }
+
+    const data = await response.json();
+
+    if (!Array.isArray(data)) {
+      throw new Error("Format data market tidak sesuai.");
+    }
+
+    marketData = data;
+
+    renderMarket();
+
+    document.getElementById("coinCount").textContent = data.length;
+    document.getElementById("lastUpdate").textContent =
+      new Date().toLocaleTimeString("id-ID", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit"
+      });
+
+    // Perbarui data detail jika modal sedang terbuka.
+    if (selectedCoin) {
+      const updated = marketData.find(c => c.id === selectedCoin.id);
+      if (updated) {
+        selectedCoin = updated;
+        updateDetailInfo(updated);
+      }
+    }
+
+  } catch (error) {
+    console.error("Market error:", error);
+
+    if (marketData.length === 0) {
+      list.innerHTML =
+        '<div class="error">' +
+        escapeHTML(error.message) +
+        '<br><br>Periksa koneksi internet atau coba refresh kembali.' +
+        '</div>';
+    }
+  } finally {
+    refresh.disabled = false;
+    refresh.textContent = "↻ Refresh";
+  }
+}
+
+/* =========================================
+   TAMPILKAN DAFTAR KOIN
+========================================= */
+
+function renderMarket() {
+  const keyword = document.getElementById("searchInput")
+    .value.trim().toLowerCase();
+
+  const filtered = marketData.filter(coin =>
+    (coin.name || "").toLowerCase().includes(keyword) ||
+    (coin.symbol || "").toLowerCase().includes(keyword)
+  );
+
+  const list = document.getElementById("coinList");
+
+  if (!filtered.length) {
+    list.innerHTML = '<div class="empty">Koin tidak ditemukan.</div>';
+    return;
+  }
+
+  list.innerHTML = filtered.map(coin => {
+    const change = safeNumber(coin.price_change_percentage_24h);
+    const positive = change === null || change >= 0;
+    const spark = coin.sparkline_in_7d?.price || [];
+
+    return `
+      <div class="coin-row">
+        <div class="coin-name">
+          <img
+            src="${escapeHTML(coin.image || "")}"
+            alt="${escapeHTML(coin.name)}"
+            loading="lazy"
+          >
+          <div>
+            <div class="coin-title">${escapeHTML(coin.name)}</div>
+            <div class="coin-symbol">${escapeHTML(coin.symbol)}</div>
+          </div>
+        </div>
+
+        <div class="price">${rupiah(coin.current_price)}</div>
+
+        <div class="change ${positive ? "up" : "down"}">
+          ${percent(change)}
+        </div>
+
+        <div class="spark-cell">
+          <canvas
+            class="spark"
+            data-coin-id="${escapeHTML(coin.id)}"
+          ></canvas>
+        </div>
+
+        <div>
+          <button
+            class="detail-btn"
+            onclick="openDetail('${escapeHTML(coin.id)}')"
+          >DETAIL</button>
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  filtered.forEach(coin => {
+    drawSparkline(
+      document.querySelector(
+        'canvas[data-coin-id="' + CSS.escape(coin.id) + '"]'
+      ),
+      coin.sparkline_in_7d?.price || [],
+      coin.price_change_percentage_24h
+    );
+  });
+}
+
+/* =========================================
+   GRAFIK MINI 7 HARI
+========================================= */
+
+function drawSparkline(canvas, values, change) {
+  if (!canvas || !values || values.length < 2) return;
+
+  const rect = canvas.getBoundingClientRect();
+  const width = Math.max(80, Math.floor(rect.width));
+  const height = 38;
+  const ratio = window.devicePixelRatio || 1;
+
+  canvas.width = width * ratio;
+  canvas.height = height * ratio;
+
+  const ctx = canvas.getContext("2d");
+  ctx.scale(ratio, ratio);
+
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+  const range = max - min || 1;
+
+  const isUp = Number(change) >= 0;
+
+  ctx.beginPath();
+
+  values.forEach((value, index) => {
+    const x = index / (values.length - 1) * width;
+    const y = height - 3 - ((value - min) / range) * (height - 8);
+
+    if (index === 0) ctx.moveTo(x, y);
+    else ctx.lineTo(x, y);
+  });
+
+  ctx.strokeStyle = isUp ? "#20c982" : "#ff5d65";
+  ctx.lineWidth = 2;
+  ctx.stroke();
+}
+
+/* =========================================
+   DETAIL KOIN
+========================================= */
+
+function openDetail(id) {
+  const coin = marketData.find(c => c.id === id);
+  if (!coin) return;
+
+  selectedCoin = coin;
+  currentPeriod = 1;
+
+  document.querySelectorAll(".period-btn").forEach(button => {
+    button.classList.toggle(
+      "active",
+      Number(button.dataset.days) === 1
+    );
+  });
+
+  updateDetailInfo(coin);
+
+  document.getElementById("detailModal").classList.add("show");
+  document.body.style.overflow = "hidden";
+
+  loadDetailChart(1);
+}
+
+function updateDetailInfo(coin) {
+  document.getElementById("detailImage").src = coin.image || "";
+  document.getElementById("detailName").textContent = coin.name || "--";
+  document.getElementById("detailSymbol").textContent =
+    (coin.symbol || "").toUpperCase();
+
+  document.getElementById("detailPrice").textContent =
+    rupiah(coin.current_price);
+
+  const change = safeNumber(coin.price_change_percentage_24h);
+  const changeElement = document.getElementById("detailChange");
+
+  changeElement.textContent = percent(change) + " dalam 24 jam";
+  changeElement.className =
+    "detail-change " + (change === null || change >= 0 ? "up" : "down");
+
+  document.getElementById("detailMarketCap").textContent =
+    compactRupiah(coin.market_cap);
+
+  document.getElementById("detailVolume").textContent =
+    compactRupiah(coin.total_volume);
+
+  document.getElementById("detailHigh").textContent =
+    rupiah(coin.high_24h);
+
+  document.getElementById("detailLow").textContent =
+    rupiah(coin.low_24h);
+
+  document.getElementById("detailRank").textContent =
+    coin.market_cap_rank ? "#" + coin.market_cap_rank : "--";
+
+  const percentElement = document.getElementById("detailPercent");
+  percentElement.textContent = percent(change);
+  percentElement.style.color =
+    change === null ? "#aaa" : (change >= 0 ? "#20c982" : "#ff5d65");
+}
+
+function closeDetail() {
+  document.getElementById("detailModal").classList.remove("show");
+  document.body.style.overflow = "";
+  selectedCoin = null;
+  chartRequestId++;
+}
+
+function outsideClose(event) {
+  if (event.target.id === "detailModal") {
+    closeDetail();
+  }
+}
+
+function changePeriod(days, button) {
+  if (!selectedCoin) return;
+
+  currentPeriod = days;
+
+  document.querySelectorAll(".period-btn").forEach(item => {
+    item.classList.remove("active");
+  });
+
+  button.classList.add("active");
+  loadDetailChart(days);
+}
+
+/* =========================================
+   AMBIL GRAFIK HISTORIS
+========================================= */
+
+async function loadDetailChart(days) {
+  if (!selectedCoin) return;
+
+  const coinId = selectedCoin.id;
+  const requestId = ++chartRequestId;
+
+  document.getElementById("chartMessage").textContent =
+    "Mengambil data grafik...";
+
+  clearDetailChart();
+
+  try {
+    const url =
+      API + "/coins/" + encodeURIComponent(coinId) +
+      "/market_chart?vs_currency=idr&days=" + days;
+
+    const response = await fetch(url, {
+      headers: { "accept": "application/json" },
+      cache: "no-store"
+    });
+
+    if (!response.ok) {
+      throw new Error(
+        response.status === 429
+          ? "Batas permintaan grafik tercapai. Coba lagi nanti."
+          : "Data grafik tidak tersedia."
+      );
+    }
+
+    const data = await response.json();
+
+    if (requestId !== chartRequestId) return;
+
+    if (!data.prices || data.prices.length < 2) {
+      throw new Error("Data grafik belum tersedia.");
+    }
+
+    drawDetailChart(data.prices);
+
+    document.getElementById("chartMessage").textContent =
+      "Grafik historis " + days + " hari";
+
+  } catch (error) {
+    if (requestId !== chartRequestId) return;
+
+    document.getElementById("chartMessage").textContent =
+      error.message;
+  }
+}
+
+/* =========================================
+   GAMBAR GRAFIK DETAIL
+========================================= */
+
+function clearDetailChart() {
+  const canvas = document.getElementById("detailChart");
+  const ctx = canvas.getContext("2d");
+
+  const rect = canvas.getBoundingClientRect();
+  const ratio = window.devicePixelRatio || 1;
+
+  canvas.width = Math.max(200, rect.width) * ratio;
+  canvas.height = Math.max(150, rect.height) * ratio;
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function drawDetailChart(prices) {
+  const canvas = document.getElementById("detailChart");
+  const ctx = canvas.getContext("2d");
+
+  const rect = canvas.getBoundingClientRect();
+  const width = Math.max(200, rect.width);
+  const height = Math.max(150, rect.height);
+  const ratio = window.devicePixelRatio || 1;
+
+  canvas.width = width * ratio;
+  canvas.height = height * ratio;
+
+  ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+  const values = prices.map(item => Number(item[1]));
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+  const range = max - min || 1;
+
+  const padding = 12;
+  const isUp = values[values.length - 1] >= values[0];
+  const lineColor = isUp ? "#20c982" : "#ff5d65";
+
+  // Garis bantu
+  ctx.strokeStyle = "rgba(255,255,255,.07)";
+  ctx.lineWidth = 1;
+
+  for (let i = 1; i <= 3; i++) {
+    const y = padding + (height - padding * 2) * i / 4;
+    ctx.beginPath();
+    ctx.moveTo(padding, y);
+    ctx.lineTo(width - padding, y);
+    ctx.stroke();
+  }
+
+  const points = values.map((value, index) => ({
+    x: padding + index / (values.length - 1) * (width - padding * 2),
+    y: height - padding -
+      ((value - min) / range) * (height - padding * 2)
+  }));
+
+  // Area grafik
+  ctx.beginPath();
+  ctx.moveTo(points[0].x, height - padding);
+
+  points.forEach(point => {
+    ctx.lineTo(point.x, point.y);
+  });
+
+  ctx.lineTo(points[points.length - 1].x, height - padding);
+  ctx.closePath();
+
+  const gradient = ctx.createLinearGradient(0, 0, 0, height);
+  gradient.addColorStop(0, isUp
+    ? "rgba(32,201,130,.25)"
+    : "rgba(255,93,101,.25)");
+  gradient.addColorStop(1, "rgba(0,0,0,0)");
+
+  ctx.fillStyle = gradient;
+  ctx.fill();
+
+  // Garis harga
+  ctx.beginPath();
+
+  points.forEach((point, index) => {
+    if (index === 0) ctx.moveTo(point.x, point.y);
+    else ctx.lineTo(point.x, point.y);
+  });
+
+  ctx.strokeStyle = lineColor;
+  ctx.lineWidth = 2;
+  ctx.lineJoin = "round";
+  ctx.stroke();
+
+  // Titik terakhir
+  const last = points[points.length - 1];
+
+  ctx.beginPath();
+  ctx.arc(last.x, last.y, 3, 0, Math.PI * 2);
+  ctx.fillStyle = lineColor;
+  ctx.fill();
+}
+
+/* =========================================
+   PENCARIAN DAN KEAMANAN TEKS
+========================================= */
+
+document.getElementById("searchInput")
+  .addEventListener("input", renderMarket);
+
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[char]);
+}
+
+/* =========================================
+   MULAI APLIKASI
+========================================= */
+
+loadMarket();
+loadMemberBalance();
+
+refreshTimer = setInterval(() => {
+  if (!document.hidden) {
+    loadMarket();
+    loadMemberBalance();
+  }
+}, 60000);
+
+document.addEventListener("visibilitychange", () => {
+  if (!document.hidden) {
+    // Tidak langsung meminta ulang bila baru saja diperbarui.
+    const last = document.getElementById("lastUpdate").textContent;
+    if (last === "--:--") {
+      loadMarket();
+      loadMemberBalance();
+    }
+  }
+});
+</script>
+
+</body>
+</html>
