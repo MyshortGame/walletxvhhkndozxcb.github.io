@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090909">
+  <title>Pemberitahuan Keamanan PIN - MyShort</title>
+  <style>
+    :root{color-scheme:dark;--bg:#090909;--panel:#151515;--panel2:#1d1d1d;--orange:#ff8a24;--orange2:#ffad55;--text:#f5f5f5;--muted:#b8b8b8;--line:#39302a}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;padding:28px 16px;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at top,#282018 0%,#111 38%,var(--bg) 76%);font-family:Inter,Roboto,Arial,sans-serif;color:var(--text)}
+    .wrap{width:100%;max-width:470px}
+    .brand{text-align:center;margin-bottom:20px}
+    .brand-mark{width:58px;height:58px;margin:0 auto 10px;border:1.5px solid var(--orange);border-radius:18px;display:grid;place-items:center;background:linear-gradient(145deg,#292019,#101010);box-shadow:inset 3px 3px 8px #000,inset -2px -2px 7px #49301c,0 0 22px #ff8a2420}
+    .brand-mark svg{width:30px;height:30px;stroke:var(--orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .brand-name{font-size:23px;font-weight:800;letter-spacing:1.8px}.brand-name span{color:var(--orange)}
+    .card{background:linear-gradient(155deg,#1c1c1c,#111);border:1px solid #332a23;border-radius:22px;padding:27px 24px;box-shadow:0 18px 50px #0009,inset 1px 1px 0 #ffffff0b}
+    .eyebrow{display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border-radius:999px;background:#ff8a2417;border:1px solid #ff8a2455;color:var(--orange2);font-size:11px;font-weight:750;letter-spacing:1px;text-transform:uppercase}
+    .eyebrow svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
+    h1{font-size:25px;line-height:1.25;margin:17px 0 12px;letter-spacing:-.45px}
+    .intro{font-size:14px;line-height:1.75;color:#d0d0d0;margin:0 0 20px}
+    .notice{padding:15px 16px;border:1px solid var(--line);border-left:3px solid var(--orange);border-radius:12px;background:linear-gradient(110deg,#ff8a2410,#ffffff04);margin:18px 0}
+    .notice strong{display:block;color:var(--orange2);font-size:13px;margin-bottom:6px}
+    .notice p{font-size:13px;line-height:1.7;color:#ddd;margin:0}
+    .section-title{font-size:13px;font-weight:750;margin:22px 0 12px;color:#f1f1f1}
+    .steps{display:grid;gap:12px}
+    .step{display:flex;gap:11px;align-items:flex-start}
+    .num{flex:0 0 25px;height:25px;border-radius:8px;display:grid;place-items:center;background:#ff8a2418;border:1px solid #ff8a2455;color:var(--orange2);font-size:12px;font-weight:800}
+    .step p{font-size:13px;line-height:1.65;color:#c9c9c9;margin:2px 0 0}
+    .step b{color:#f3f3f3}
+    .warning{margin-top:19px;padding:13px 14px;border-radius:12px;background:#2a1b12;border:1px solid #70401f;color:#f1d5bf;font-size:12px;line-height:1.7}
+    .warning b{color:#ffb36c}
+    button{width:100%;margin-top:22px;border:0;border-radius:12px;padding:14px 18px;background:linear-gradient(135deg,#ffad55,#f47a16);color:#17100a;font-size:14px;font-weight:800;letter-spacing:.2px;cursor:pointer;box-shadow:0 7px 18px #ff8a2425}
+    button:active{transform:translateY(1px)}
+    .foot{text-align:center;color:#777;font-size:11px;line-height:1.6;margin:17px 8px 0}
+    @media(max-width:380px){.card{padding:23px 18px}h1{font-size:22px}.brand-name{font-size:21px}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="brand" aria-label="MyShort">
+      <div class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32"><path d="M16 3.5 26 7v7.2c0 6.5-4.2 11.6-10 14.3C10.2 25.8 6 20.7 6 14.2V7l10-3.5Z"/><path d="m11.5 15.8 3 3 6.3-6.5"/></svg>
+      </div>
+      <div class="brand-name">MY<span>SHORT</span></div>
+    </header>
+
+    <section class="card">
+      <div class="eyebrow"><svg viewBox="0 0 20 20"><path d="M10 2.5 17 5v5c0 4.5-2.9 7.9-7 9.5-4.1-1.6-7-5-7-9.5V5l7-2.5Z"/><path d="m7 10 2 2 4-4"/></svg> Pemberitahuan Keamanan</div>
+      <h1>Keamanan Akun Anda Adalah Prioritas Kami</h1>
+      <p class="intro">Seiring meningkatnya risiko ancaman digital dan upaya akses tanpa izin, MyShort mengimbau seluruh pengguna untuk meningkatkan perlindungan akun dengan menggunakan kode PIN keamanan.</p>
+
+      <div class="notice">
+        <strong>Mengapa PIN keamanan diperlukan?</strong>
+        <p>PIN merupakan lapisan perlindungan tambahan untuk membantu mencegah orang lain mengakses akun Anda tanpa izin. Pastikan hanya Anda yang mengetahui kode PIN tersebut.</p>
+      </div>
+
+      <div class="section-title">Hal penting yang perlu Anda perhatikan</div>
+      <div class="steps">
+        <div class="step"><span class="num">1</span><p><b>Gunakan PIN yang kuat.</b> Hindari tanggal lahir, angka berurutan, atau kombinasi yang mudah ditebak.</p></div>
+        <div class="step"><span class="num">2</span><p><b>Jaga kerahasiaan PIN.</b> Jangan membagikan kode PIN kepada siapa pun, termasuk orang yang mengaku sebagai petugas MyShort.</p></div>
+        <div class="step"><span class="num">3</span><p><b>Waspadai tautan mencurigakan.</b> Jangan memasukkan PIN melalui tautan atau halaman yang tidak Anda yakini keasliannya.</p></div>
+        <div class="step"><span class="num">4</span><p><b>Segera bertindak jika ada aktivitas asing.</b> Hubungi kanal bantuan resmi MyShort apabila Anda mencurigai akun diakses pihak lain.</p></div>
+      </div>
+
+      <div class="warning"><b>Perhatian:</b> MyShort tidak akan meminta Anda mengirimkan PIN melalui chat, telepon, atau pesan pribadi. Jangan pernah memberikan kode PIN maupun kata sandi kepada siapa pun.</div>
+      <button type="button" onclick="this.textContent='Terima kasih atas perhatian Anda';this.disabled=true;this.style.opacity='.75'">Saya Mengerti</button>
+    </section>
+    <p class="foot">Terima kasih telah membantu menjaga keamanan akun MyShort.<br>Gunakan layanan dengan bijak dan tetap waspada.</p>
+  </main>
+</body>
+</html>
